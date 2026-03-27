@@ -819,22 +819,8 @@ function goHome() {
   document.getElementById('subbar').style.display = 'none';
   document.getElementById('topbar').style.display = 'none';
   document.getElementById('landing').style.display = 'flex';
-
-  // remove score banner if exists
-  const sb = document.getElementById('sbanner');
-  if (sb) sb.remove();
-
-  // reset quiz container
-  const wrap = document.getElementById('qwrap');
-  if (wrap) wrap.innerHTML = '';
-
-  // reset state
-  currentMode = null;
-  currentSoal = [];
-  userAnswers = [];
-  submitted = false;
-
   window.scrollTo(0,0);
+  location.reload();
 }
 </script>
 </body>
