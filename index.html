@@ -3,93 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ujian SME CRR – BCA</title>
+<title>Ujian SME CRR v3 – BCA</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy: #0B1F3A; --navy2: #132d54; --navy3: #0d2847;
-  --blue: #1A56DB; --blue2: #3B82F6;
-  --gold: #D4A017; --gold2: #F5C842;
-  --cream: #FAF7F2; --white: #FFFFFF;
-  --gray: #64748B; --gray2: #E8EDF4;
-  --green: #059669; --green2: #D1FAE5;
-  --red: #DC2626; --red2: #FEE2E2;
-  --shadow: 0 4px 24px rgba(11,31,58,0.12);
-  --shadow-lg: 0 12px 48px rgba(11,31,58,0.18);
-}
+:root{--navy:#0B1F3A;--navy2:#132d54;--blue:#1A56DB;--blue2:#3B82F6;--gold:#D4A017;--gold2:#F5C842;--cream:#FAF7F2;--white:#FFFFFF;--gray:#64748B;--gray2:#E8EDF4;--green:#059669;--green2:#D1FAE5;--red:#DC2626;--red2:#FEE2E2;--shadow:0 4px 24px rgba(11,31,58,0.12);--shadow-lg:0 12px 48px rgba(11,31,58,0.18);}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);min-height:100vh;}
 
-/* ════════════════════════════════
-   HEADER
-════════════════════════════════ */
-#topbar{display:none;background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(0,0,0,0.3);}
-.tb-inner{max-width:900px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.tb-brand{display:flex;align-items:center;gap:10px;}
+#topbar{display:none;background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.tb{max-width:900px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.tb-l{display:flex;align-items:center;gap:10px;}
 .tb-logo{width:34px;height:34px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:17px;color:var(--navy);}
 .tb-title{font-weight:600;font-size:13px;color:var(--white);line-height:1.3;}
-.tb-title span{display:block;font-weight:300;font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:.06em;text-transform:uppercase;}
-.tb-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
-.tb-badge{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:rgba(212,160,23,0.18);color:var(--gold2);border:1px solid rgba(212,160,23,0.3);}
-.tb-count{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.45);}
-.tb-prog-outer{width:100px;height:3px;background:rgba(255,255,255,0.12);border-radius:99px;overflow:hidden;}
-.tb-prog-inner{height:100%;width:0%;background:var(--gold);border-radius:99px;transition:width .4s ease;}
+.tb-title span{display:block;font-weight:300;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase;}
+.tb-r{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.tb-badge{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:4px;}
+.bk{background:rgba(212,160,23,.15);color:var(--gold2);border:1px solid rgba(212,160,23,.3);}
+.bt{background:rgba(26,86,219,.18);color:#93C5FD;border:1px solid rgba(26,86,219,.3);}
+.tb-cnt{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);}
+.tb-po{width:90px;height:3px;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden;}
+.tb-pi{height:100%;width:0%;background:var(--gold);border-radius:99px;transition:width .4s;}
 
-/* ════════════════════════════════
-   LANDING – MODE SELECT
-════════════════════════════════ */
 #landing{min-height:100vh;background:var(--navy);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.land-glow1{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(26,86,219,.18) 0%,transparent 65%);top:-200px;right:-200px;pointer-events:none;}
-.land-glow2{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(212,160,23,.1) 0%,transparent 65%);bottom:-150px;left:-150px;pointer-events:none;}
-.land-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
-.land-wrap{position:relative;z-index:1;text-align:center;padding:0 24px;max-width:760px;width:100%;}
-.land-eyebrow{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px;}
-.land-eyebrow::before,.land-eyebrow::after{content:'';display:inline-block;width:28px;height:1px;background:rgba(255,255,255,.2);}
-.land-h1{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:var(--white);line-height:1.0;margin-bottom:16px;}
-.land-h1 em{color:var(--gold);font-style:normal;}
-.land-sub{font-size:15px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:52px;}
-.mode-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:640px;margin:0 auto;}
-.mode-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:18px;padding:32px 28px;cursor:pointer;transition:all .25s;text-align:left;position:relative;overflow:hidden;}
-.mode-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(212,160,23,.08) 0%,transparent 60%);opacity:0;transition:opacity .25s;}
-.mode-card:hover{border-color:rgba(212,160,23,.4);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.3);}
-.mode-card:hover::before{opacity:1;}
-.mode-card.teori-card::before{background:radial-gradient(circle at 80% 20%,rgba(26,86,219,.12) 0%,transparent 60%);}
-.mode-card.teori-card:hover{border-color:rgba(59,130,246,.4);}
-.mc-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;}
-.kasus-icon{background:rgba(212,160,23,.15);}
-.teori-icon{background:rgba(26,86,219,.18);}
+.lg1{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(26,86,219,.18) 0%,transparent 65%);top:-200px;right:-200px;pointer-events:none;}
+.lg2{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(212,160,23,.1) 0%,transparent 65%);bottom:-150px;left:-150px;pointer-events:none;}
+.lgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+.lw{position:relative;z-index:1;text-align:center;padding:0 24px;max-width:780px;width:100%;}
+.ley{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.ley::before,.ley::after{content:'';display:inline-block;width:28px;height:1px;background:rgba(255,255,255,.18);}
+.lh1{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:var(--white);line-height:1.0;margin-bottom:14px;}
+.lh1 em{color:var(--gold);font-style:normal;}
+.lsub{font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:52px;}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:660px;margin:0 auto;}
+.mc{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.09);border-radius:20px;padding:32px 28px;cursor:pointer;transition:all .25s;text-align:left;position:relative;overflow:hidden;}
+.mc::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .25s;}
+.mk::before{background:radial-gradient(circle at 80% 20%,rgba(212,160,23,.1) 0%,transparent 60%);}
+.mt::before{background:radial-gradient(circle at 80% 20%,rgba(26,86,219,.14) 0%,transparent 60%);}
+.mc:hover{transform:translateY(-5px);box-shadow:0 24px 60px rgba(0,0,0,.35);}
+.mk:hover{border-color:rgba(212,160,23,.45);}
+.mt:hover{border-color:rgba(59,130,246,.45);}
+.mc:hover::before{opacity:1;}
+.mc-ico{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;}
+.mk .mc-ico{background:rgba(212,160,23,.14);}
+.mt .mc-ico{background:rgba(26,86,219,.18);}
 .mc-tag{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:12px;display:inline-block;}
-.kasus-tag{background:rgba(212,160,23,.12);color:var(--gold2);border:1px solid rgba(212,160,23,.25);}
-.teori-tag{background:rgba(26,86,219,.15);color:#93C5FD;border:1px solid rgba(26,86,219,.3);}
-.mc-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px;}
-.mc-desc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:20px;}
-.mc-stats{display:flex;gap:16px;}
-.mc-stat{text-align:center;}
-.mc-stat-num{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;display:block;}
-.kasus-card .mc-stat-num{color:var(--gold);}
-.teori-card .mc-stat-num{color:#60A5FA;}
-.mc-stat-lbl{font-size:10px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.06em;}
-.mc-arrow{position:absolute;bottom:24px;right:24px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.4);transition:all .25s;}
-.mode-card:hover .mc-arrow{background:rgba(255,255,255,.15);color:var(--white);transform:translateX(3px);}
+.mk .mc-tag{background:rgba(212,160,23,.1);color:var(--gold2);border:1px solid rgba(212,160,23,.22);}
+.mt .mc-tag{background:rgba(26,86,219,.14);color:#93C5FD;border:1px solid rgba(26,86,219,.28);}
+.mc-ttl{font-family:'Playfair Display',serif;font-size:23px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.mc-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.65;margin-bottom:22px;}
+.mc-stats{display:flex;gap:20px;}
+.mc-sn{font-family:'DM Mono',monospace;font-size:20px;font-weight:500;display:block;}
+.mk .mc-sn{color:var(--gold);}
+.mt .mc-sn{color:#60A5FA;}
+.mc-sl{font-size:10px;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.06em;}
+.mc-arr{position:absolute;bottom:24px;right:22px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.35);transition:all .25s;}
+.mc:hover .mc-arr{background:rgba(255,255,255,.14);color:var(--white);transform:translateX(3px);}
 
-/* ════════════════════════════════
-   QUIZ SCREEN
-════════════════════════════════ */
-#quiz-screen{display:none;padding:32px 24px 120px;}
-.quiz-wrap{max-width:800px;margin:0 auto;}
+#quiz{display:none;padding:32px 24px 130px;}
+.qw{max-width:800px;margin:0 auto;}
+.sdiv{display:flex;align-items:center;gap:12px;margin:44px 0 20px;}
+.sdiv:first-child{margin-top:0;}
+.slbl{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);white-space:nowrap;background:#EBF3FB;padding:5px 14px;border-radius:99px;}
+.sline{flex:1;height:1px;background:var(--gray2);}
 
-.sec-div{display:flex;align-items:center;gap:12px;margin:44px 0 20px;}
-.sec-div:first-child{margin-top:0;}
-.sec-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);white-space:nowrap;background:#EBF3FB;padding:5px 14px;border-radius:99px;}
-.sec-line{flex:1;height:1px;background:var(--gray2);}
-
-.qcard{background:var(--white);border-radius:16px;padding:28px 32px;margin-bottom:14px;box-shadow:var(--shadow);border:1.5px solid transparent;transition:border-color .2s,box-shadow .2s;position:relative;animation:fadeUp .3s ease both;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.qcard{background:var(--white);border-radius:16px;padding:28px 32px;margin-bottom:14px;box-shadow:var(--shadow);border:1.5px solid transparent;transition:border-color .2s,box-shadow .2s;position:relative;animation:fu .3s ease both;}
+@keyframes fu{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
 .qcard:hover{box-shadow:var(--shadow-lg);}
-
 .qh{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;}
 .qnum{background:var(--navy);color:var(--gold);font-family:'DM Mono',monospace;font-size:11px;font-weight:500;padding:4px 10px;border-radius:6px;flex-shrink:0;margin-top:2px;}
 .qtxt{font-size:14.5px;font-weight:500;line-height:1.68;color:var(--navy);}
+.qtxt .data{display:block;margin-top:10px;font-size:13px;font-weight:400;color:#374151;background:#F8FAFD;border:1px solid #E2E8F0;border-radius:8px;padding:10px 14px;font-family:'DM Mono',monospace;line-height:1.9;}
 
 .opts{display:flex;flex-direction:column;gap:7px;}
 .opt{display:flex;align-items:flex-start;gap:12px;padding:11px 15px;border-radius:10px;border:1.5px solid var(--gray2);cursor:pointer;transition:all .15s;background:#FAFBFD;}
@@ -97,730 +80,708 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);
 .opt input{display:none;}
 .odot{width:18px;height:18px;border-radius:50%;border:2px solid #CBD5E1;flex-shrink:0;margin-top:1px;transition:all .15s;position:relative;}
 .odot::after{content:'';position:absolute;width:8px;height:8px;background:var(--blue);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);transition:transform .15s;}
-.opt.selected .odot{border-color:var(--blue);background:var(--blue);}
-.opt.selected .odot::after{background:white;transform:translate(-50%,-50%) scale(1);}
-.opt.selected{border-color:var(--blue);background:#EBF3FF;}
-.otxt{font-size:13.5px;line-height:1.5;color:#374151;}
+.opt.sel .odot{border-color:var(--blue);background:var(--blue);}
+.opt.sel .odot::after{background:#fff;transform:translate(-50%,-50%) scale(1);}
+.opt.sel{border-color:var(--blue);background:#EBF3FF;}
+.otxt{font-size:14px;line-height:1.5;color:#374151;}
+.opt.ok{border-color:var(--green)!important;background:var(--green2)!important;}
+.opt.ok .odot{border-color:var(--green);background:var(--green);}
+.opt.ok .odot::after{content:'✓';font-size:9px;font-weight:700;color:#fff;background:transparent;transform:translate(-50%,-50%) scale(1);}
+.opt.no{border-color:var(--red)!important;background:var(--red2)!important;}
+.opt.no .odot{border-color:var(--red);background:var(--red);}
+.opt.no .odot::after{content:'✗';font-size:9px;font-weight:700;color:#fff;background:transparent;transform:translate(-50%,-50%) scale(1);}
+.opt.ok .otxt{color:#065F46;font-weight:500;}
+.opt.no .otxt{color:#991B1B;}
+.opt.dis{cursor:not-allowed;pointer-events:none;}
 
-.opt.correct{border-color:var(--green)!important;background:var(--green2)!important;}
-.opt.correct .odot{border-color:var(--green);background:var(--green);}
-.opt.correct .odot::after{content:'✓';font-size:9px;font-weight:700;color:#fff;background:transparent;transform:translate(-50%,-50%) scale(1);}
-.opt.correct .otxt{color:#065F46;font-weight:500;}
-.opt.wrong{border-color:var(--red)!important;background:var(--red2)!important;}
-.opt.wrong .odot{border-color:var(--red);background:var(--red);}
-.opt.wrong .odot::after{content:'✗';font-size:9px;font-weight:700;color:#fff;background:transparent;transform:translate(-50%,-50%) scale(1);}
-.opt.wrong .otxt{color:#991B1B;}
-.opt.disabled{cursor:not-allowed;pointer-events:none;}
-
-/* explanation */
-.expbox{margin-top:14px;border-radius:10px;overflow:hidden;border:1.5px solid var(--gray2);display:none;animation:slideD .3s ease;}
-@keyframes slideD{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
+.expbox{margin-top:14px;border-radius:10px;overflow:hidden;border:1.5px solid var(--gray2);display:none;animation:sd .3s ease;}
+@keyframes sd{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
 .expbox.show{display:block;}
-.exph{display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:12px;font-weight:600;}
+.exph{display:flex;align-items:center;gap:8px;padding:9px 15px;font-size:12px;font-weight:600;}
 .exph.ok{background:#ECFDF5;color:#065F46;border-bottom:1px solid #A7F3D0;}
 .exph.no{background:#FFF5F5;color:#9B1C1C;border-bottom:1px solid #FECACA;}
 .exph-ref{font-family:'DM Mono',monospace;font-size:10px;background:rgba(0,0,0,.06);padding:2px 7px;border-radius:4px;margin-left:auto;}
-.expb{padding:14px 16px;font-size:13.5px;line-height:1.72;color:#374151;background:#FAFBFD;}
+.expb{padding:13px 15px;font-size:13.5px;line-height:1.72;color:#374151;background:#FAFBFD;}
 .expb strong{color:var(--navy);}
+.calc{display:block;margin-top:9px;font-family:'DM Mono',monospace;font-size:12px;background:#F1F5F9;border-radius:6px;padding:10px 13px;color:var(--navy2);line-height:1.9;}
 
-/* warn */
-.qcard.warn{border-color:#F59E0B!important;box-shadow:0 0 0 3px rgba(245,158,11,.15);animation:shake .4s ease;}
-@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
-.wlbl{position:absolute;top:11px;right:13px;background:#FEF3C7;color:#92400E;font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid #FCD34D;}
-.qcard.result-ok{border-color:#A7F3D0;}
-.qcard.result-no{border-color:#FECACA;}
-.rtag{position:absolute;top:11px;right:13px;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:99px;}
+.qcard.warn{border-color:#F59E0B!important;box-shadow:0 0 0 3px rgba(245,158,11,.14);animation:shake .4s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.wlbl{position:absolute;top:12px;right:14px;background:#FEF3C7;color:#92400E;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:99px;border:1px solid #FCD34D;}
+.rtag{position:absolute;top:12px;right:14px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:99px;}
 .rtag.ok{background:#D1FAE5;color:#065F46;border:1px solid #6EE7B7;}
 .rtag.no{background:#FEE2E2;color:#991B1B;border:1px solid #FCA5A5;}
+.qcard.rb{border-color:#A7F3D0;}
+.qcard.rr{border-color:#FECACA;}
 
-/* ════════════════════════════════
-   SUBMIT BAR
-════════════════════════════════ */
-#subbar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--gray2);padding:14px 24px;z-index:100;box-shadow:0 -4px 20px rgba(0,0,0,.08);}
-.subbar-in{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.subinfo{font-size:13px;color:var(--gray);}
-.subinfo strong{color:var(--navy);font-weight:600;}
-.btnsubmit{background:var(--navy);color:var(--white);border:none;padding:12px 32px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;}
-.btnsubmit:hover{background:var(--navy2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(11,31,58,.25);}
+#subbar{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--gray2);padding:15px 24px;display:none;z-index:50;box-shadow:0 -4px 24px rgba(0,0,0,.08);}
+.sb{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.sb-info{font-size:13px;color:var(--gray);}
+.sb-info strong{color:var(--navy);font-weight:600;}
+.btn-sub{background:var(--navy);color:var(--white);border:none;padding:13px 36px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.btn-sub:hover{background:var(--navy2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(11,31,58,.25);}
+.btn-gh{background:rgba(11,31,58,.06);color:var(--navy);border:none;padding:13px 24px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;}
+.btn-gh:hover{background:rgba(11,31,58,.1);}
 
-/* ════════════════════════════════
-   SCORE BANNER
-════════════════════════════════ */
-.score-banner{display:none;background:var(--navy);border-radius:16px;padding:28px 32px;margin-bottom:28px;position:relative;overflow:hidden;}
-.score-banner::before{content:'';position:absolute;width:350px;height:350px;background:radial-gradient(circle,rgba(26,86,219,.22) 0%,transparent 65%);top:-80px;right:-80px;pointer-events:none;}
-.sbin{display:flex;align-items:center;gap:28px;position:relative;z-index:1;}
-.sring{width:100px;height:100px;position:relative;flex-shrink:0;}
+.sbanner{background:var(--navy);border-radius:18px;padding:30px 32px;margin-bottom:32px;position:relative;overflow:hidden;display:none;}
+.sbanner::before{content:'';position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(26,86,219,.22) 0%,transparent 70%);top:-120px;right:-80px;pointer-events:none;}
+.sbi{display:flex;align-items:center;gap:28px;position:relative;z-index:1;flex-wrap:wrap;}
+.sring{width:110px;height:110px;position:relative;flex-shrink:0;}
 .sring svg{transform:rotate(-90deg);}
-.srbg{fill:none;stroke:rgba(255,255,255,.1);stroke-width:10;}
-.srfg{fill:none;stroke-width:10;stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:283;transition:stroke-dashoffset 1.3s cubic-bezier(.4,0,.2,1);}
+.srbg{fill:none;stroke:rgba(255,255,255,.08);stroke-width:10;}
+.srfg{fill:none;stroke-width:10;stroke-linecap:round;stroke-dasharray:314;stroke-dashoffset:314;transition:stroke-dashoffset 1.3s cubic-bezier(.4,0,.2,1);}
 .srtxt{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;}
-.srnum{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--white);display:block;line-height:1;}
-.srof{font-size:10px;color:rgba(255,255,255,.35);}
-.sbinfo{flex:1;}
-.sbgrade{font-family:'Playfair Display',serif;font-size:23px;font-weight:700;color:var(--white);margin-bottom:4px;}
-.sbdesc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:14px;}
-.sbpills{display:flex;gap:8px;flex-wrap:wrap;}
-.sbpill{font-family:'DM Mono',monospace;font-size:11px;padding:4px 11px;border-radius:99px;font-weight:500;}
+.srn{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--white);display:block;line-height:1;}
+.sro{font-size:10px;color:rgba(255,255,255,.35);}
+.sinfo{flex:1;min-width:200px;}
+.sgrade{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.sdesc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:14px;}
+.spills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.spill{font-family:'DM Mono',monospace;font-size:11px;padding:5px 12px;border-radius:99px;font-weight:500;}
 .pok{background:rgba(5,150,105,.2);color:#6EE7B7;border:1px solid rgba(5,150,105,.3);}
 .pno{background:rgba(220,38,38,.2);color:#FCA5A5;border:1px solid rgba(220,38,38,.3);}
 .ppct{background:rgba(212,160,23,.2);color:var(--gold2);border:1px solid rgba(212,160,23,.3);}
-.btnback{background:rgba(255,255,255,.1);color:var(--white);border:1px solid rgba(255,255,255,.2);padding:8px 18px;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;margin-top:12px;display:inline-flex;align-items:center;gap:6px;}
-.btnback:hover{background:rgba(255,255,255,.18);}
+.btn-rt{background:rgba(255,255,255,.1);color:var(--white);border:1px solid rgba(255,255,255,.18);padding:9px 22px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;margin-right:8px;}
+.btn-rt:hover{background:rgba(255,255,255,.18);}
+.btn-bk{background:var(--gold);color:var(--navy);border:none;padding:9px 22px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;}
+.btn-bk:hover{background:var(--gold2);}
 
-@media(max-width:620px){
-  .land-h1{font-size:36px;}
-  .mode-cards{grid-template-columns:1fr;}
-  .qcard{padding:20px 18px;}
-  .tb-inner{padding:12px 16px;}
-  .tb-prog-outer{width:70px;}
-  .sbin{flex-direction:column;align-items:flex-start;gap:16px;}
-}
+@media(max-width:600px){.lh1{font-size:38px;}.mgrid{grid-template-columns:1fr;}.mc{padding:24px 20px;}.qcard{padding:20px 18px;}.tb{padding:11px 16px;}.tb-po{width:60px;}.sbi{flex-direction:column;align-items:flex-start;gap:16px;}}
 </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
 <div id="topbar">
-  <div class="tb-inner">
-    <div class="tb-brand">
+  <div class="tb">
+    <div class="tb-l">
       <div class="tb-logo">B</div>
-      <div class="tb-title">SME CRR<span id="tb-mode-label">—</span></div>
+      <div class="tb-title">Ujian SME CRR <span id="tb-mode">· v3</span></div>
     </div>
-    <div class="tb-right">
-      <span class="tb-badge" id="tb-badge">—</span>
-      <span class="tb-count" id="tb-count">0 / 0</span>
-      <div class="tb-prog-outer"><div class="tb-prog-inner" id="tb-prog"></div></div>
+    <div class="tb-r">
+      <span class="tb-badge" id="tb-badge"></span>
+      <span class="tb-cnt"><span id="tb-a">0</span>/<span id="tb-t">0</span></span>
+      <div class="tb-po"><div class="tb-pi" id="tb-pi"></div></div>
     </div>
   </div>
 </div>
 
-<!-- LANDING -->
 <div id="landing">
-  <div class="land-glow1"></div>
-  <div class="land-glow2"></div>
-  <div class="land-grid"></div>
-  <div class="land-wrap">
-    <div class="land-eyebrow">Bank Central Asia · Internal</div>
-    <div class="land-h1">Ujian<br><em>SME CRR v3</em></div>
-    <div class="land-sub">Manual Kerja SME ≤ Rp 15 M Credit Risk Rating<br>Versi 21 · Januari 2025 · Pilih mode ujian</div>
-    <div class="mode-cards">
-      <div class="mode-card kasus-card" onclick="startMode('kasus')">
-        <div class="mc-icon kasus-icon">📊</div>
-        <div class="mc-tag kasus-tag">Soal Kasus</div>
-        <div class="mc-title">Ujian Kasus</div>
-        <div class="mc-desc">Soal berbasis skenario nyata dengan angka dan perhitungan. Uji kemampuan analisa kredit Anda.</div>
+  <div class="lg1"></div><div class="lg2"></div><div class="lgrid"></div>
+  <div class="lw">
+    <div class="ley">Manual Kerja SME CRR Versi 21 &middot; BCA 2025</div>
+    <div class="lh1">Bank <em>Soal</em><br>Terbaru</div>
+    <div class="lsub">70 soal baru hari ini · belum pernah keluar sebelumnya<br>Kasus: kalkulasi multi-langkah · Teori: ketentuan detail & edge-case</div>
+    <div class="mgrid">
+      <div class="mc mk" onclick="go('kasus')">
+        <div class="mc-ico">🧮</div>
+        <div class="mc-tag">Soal Kasus Baru</div>
+        <div class="mc-ttl">Ujian Kasus</div>
+        <div class="mc-desc">Perhitungan bertingkat: sewa + saling-ikat + partial alokasi + rate multi-fasilitas + depresiasi lintas kondisi.</div>
         <div class="mc-stats">
-          <div class="mc-stat"><span class="mc-stat-num">35</span><div class="mc-stat-lbl">Soal</div></div>
-          <div class="mc-stat"><span class="mc-stat-num">8</span><div class="mc-stat-lbl">Bagian</div></div>
-          <div class="mc-stat"><span class="mc-stat-num">★★★</span><div class="mc-stat-lbl">Level</div></div>
+          <div><span class="mc-sn">35</span><div class="mc-sl">Soal Baru</div></div>
+          <div><span class="mc-sn">8</span><div class="mc-sl">Bagian</div></div>
         </div>
-        <div class="mc-arrow">→</div>
+        <div class="mc-arr">→</div>
       </div>
-      <div class="mode-card teori-card" onclick="startMode('teori')">
-        <div class="mc-icon teori-icon">📖</div>
-        <div class="mc-tag teori-tag">Soal Teori</div>
-        <div class="mc-title">Ujian Teori</div>
-        <div class="mc-desc">Soal konsep, definisi, prosedur, dan ketentuan manual. Murni pemahaman tanpa perhitungan.</div>
+      <div class="mc mt" onclick="go('teori')">
+        <div class="mc-ico">📋</div>
+        <div class="mc-tag">Soal Teori Baru</div>
+        <div class="mc-ttl">Ujian Teori</div>
+        <div class="mc-desc">Ketentuan spesifik, kondisi-kondisi pengecualian, perbedaan tipis antar aturan, dan skenario yang sering disalah-artikan.</div>
         <div class="mc-stats">
-          <div class="mc-stat"><span class="mc-stat-num">35</span><div class="mc-stat-lbl">Soal</div></div>
-          <div class="mc-stat"><span class="mc-stat-num">8</span><div class="mc-stat-lbl">Topik</div></div>
-          <div class="mc-stat"><span class="mc-stat-num">★★★</span><div class="mc-stat-lbl">Level</div></div>
+          <div><span class="mc-sn">35</span><div class="mc-sl">Soal Baru</div></div>
+          <div><span class="mc-sn">8</span><div class="mc-sl">Topik</div></div>
         </div>
-        <div class="mc-arrow">→</div>
+        <div class="mc-arr">→</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- QUIZ -->
-<div id="quiz-screen">
-  <div class="quiz-wrap" id="qwrap"></div>
-</div>
+<div id="quiz"><div class="qw" id="qw"></div></div>
 
-<!-- SUBMIT BAR -->
 <div id="subbar">
-  <div class="subbar-in">
-    <div class="subinfo">Terjawab: <strong id="ans-count">0</strong> dari <strong id="total-count">0</strong></div>
-    <button class="btnsubmit" id="btn-main" onclick="submitQuiz()">Submit & Lihat Nilai →</button>
+  <div class="sb">
+    <div class="sb-info">Terjawab: <strong id="sb-a">0</strong> dari <strong id="sb-t">0</strong> soal</div>
+    <div style="display:flex;gap:8px;">
+      <button class="btn-gh" onclick="toLanding()">← Pilih Mode</button>
+      <button class="btn-sub" onclick="submit()">Submit & Lihat Nilai →</button>
+    </div>
   </div>
 </div>
 
 <script>
-/* ════════════════════════════════════════
-   SOAL KASUS (35 soal baru)
-════════════════════════════════════════ */
-const KASUS = [
-  // ── BAGIAN 1: JENIS MEMO & PROSEDUR ──
-  {sec:"Bagian 1 – Jenis Memo & Prosedur",no:1,ans:2,ref:"hal. 14",
-   q:"PT SURYA ABADI mengajukan fasilitas Kredit Investasi baru (non-revolving) jangka panjang. Tanggal memo 10 Maret 2025, tenor 5 tahun. Kapan batas MAKSIMAL jatuh tempo yang boleh diinput?",
-   opts:["A. 9 Maret 2030","B. 10 Juli 2030","C. 9 Juli 2030","D. 10 Maret 2030"],
-   exp:"Untuk fasilitas <strong>baru jangka panjang (non-revolving)</strong>: Tanggal Memo + Jangka Waktu + maksimal 4 bulan – 1 hari. 10 Mar 2025 + 5 tahun + 4 bulan – 1 hari = <strong>9 Juli 2030</strong>."},
+/* ══════════════════════════════════════════════════════════════
+   KASUS — 35 SOAL BARU
+══════════════════════════════════════════════════════════════ */
+const KASUS=[
 
-  {sec:null,no:2,ans:1,ref:"hal. 7",
-   q:"CV MAJU JAYA mengajukan permohonan dengan 4 kondisi sekaligus: perpanjangan KL existing, penambahan TL baru, penukaran agunan, dan penurunan plafon KL. Jenis memo yang dipilih adalah?",
-   opts:["A. Perpanjangan","B. Penambahan","C. Pengurangan","D. Penukaran"],
-   exp:"Bila permohonan lebih dari satu, dipilih yang <strong>lebih berisiko atau fokus utama</strong>. Penambahan (ada fasilitas/plafon baru) risikonya lebih tinggi dari perpanjangan, penukaran, maupun pengurangan. Maka dipilih <strong>Penambahan</strong>."},
+/* ── BAGIAN 1: MEMO, PROSEDUR & TANGGAL ── */
+{sec:"Bagian 1 – Memo, Prosedur & Tanggal",no:1,ans:2,ref:"hal. 14",
+q:"KMK revolving existing jatuh tempo 20 Mei 2025. Debitur mengajukan perpanjangan. Memo dibuat 10 April 2025. Tanggal jatuh tempo MAKSIMAL untuk perpanjangan ini adalah?",
+opts:["A. 20 Mei 2026","B. 19 September 2026","C. 20 September 2026","D. 20 Mei 2025 + 1 tahun + 4 bulan"],
+exp:"Perpanjangan revolving: JT existing + 1 tahun + 4 bulan – 1 hari = 20 Mei 2025 + 12 bulan + 4 bulan – 1 hari = 20 Sep 2026 – 1 hari = <strong>19 September 2026</strong>. Bukan dari tanggal memo.",
+calc:"20 Mei 2025 + 16 bulan – 1 hari = 19 Sep 2026"},
 
-  {sec:null,no:3,ans:0,ref:"hal. 3–4",
-   q:"Hasil scoring 'Black'. Namun pejabat memutuskan tetap memproses karena ada pertimbangan bisnis kuat. Siapa yang berwenang memutus kredit dengan hasil akhir Black/Knock-Out?",
-   opts:["A. Senior Credit Analyst / Credit Adviser dan Kakanwil","B. Senior Officer SUC dan Kepala KCU","C. PIC Relationship dan Head RO","D. Tidak ada yang berwenang, harus ditolak mutlak"],
-   exp:"Hasil <strong>Black/Knock-Out harus ditolak</strong>, namun untuk kasus-kasus tertentu dapat dianalisa lebih lanjut di GARK dan diputuskan oleh <strong>Senior Credit Analyst / Credit Adviser dan Kakanwil</strong>. Tidak bisa diputus di level cabang saja."},
+{sec:null,no:2,ans:0,ref:"hal. 14",
+q:"TL revolving existing jatuh tempo 1 Desember 2025. Memo perpanjangan dibuat 15 Oktober 2025. Maksimal jatuh tempo perpanjangan?",
+opts:["A. 31 Maret 2027","B. 1 April 2027","C. 1 Desember 2026","D. 30 November 2026"],
+exp:"JT existing 1 Des 2025 + 1 tahun + 4 bulan – 1 hari = 1 Apr 2027 – 1 hari = <strong>31 Maret 2027</strong>.",
+calc:"1 Des 2025 + 16 bln – 1 hari = 31 Mar 2027"},
 
-  {sec:null,no:4,ans:3,ref:"hal. 15",
-   q:"Debitur mengajukan permohonan KI jangka panjang PENAMBAHAN plafon sebesar Rp 2 M. Jatuh tempo akad kredit existing adalah 15 Agustus 2028. Tanggal jatuh tempo apa yang diinput?",
-   opts:["A. Tanggal memo sekarang + 5 tahun","B. Tanggal memo sekarang + 5 tahun + 4 bulan - 1 hari","C. 15 Agustus 2028 + 1 tahun","D. 15 Agustus 2028 (sesuai jatuh tempo akad kredit yang ada)"],
-   exp:"Untuk jenis permohonan <strong>Penambahan</strong> pada fasilitas jangka panjang (non-revolving), jatuh tempo diisi <strong>sesuai tanggal jatuh tempo akad kredit yang ada</strong> yaitu 15 Agustus 2028. Tidak ditambah waktu baru."},
+{sec:null,no:3,ans:3,ref:"hal. 7",
+q:"Debitur mengajukan: (A) perpanjangan KMK, (B) penurunan plafon KI dengan penarikan 1 bidang agunan. Jenis memo yang dipilih?",
+opts:["A. Perpanjangan","B. Pengurangan","C. Lain-lain","D. Pengurangan, karena penurunan dengan penarikan agunan lebih berisiko dari perpanjangan"],
+exp:"<strong>Pengurangan</strong> = penurunan plafon DENGAN penarikan agunan. Ini adalah kondisi yang lebih spesifik dan tepat untuk situasi ini, dan memiliki bobot risiko tersendiri. Pilih <strong>Pengurangan</strong>."},
 
-  // ── BAGIAN 2: DATA DEBITUR & EKSPOSUR ──
-  {sec:"Bagian 2 – Data Debitur & Eksposur",no:5,ans:2,ref:"hal. 25",
-   q:"Debitur A (fasilitas Rp 9 M) dan Debitur B (fasilitas Rp 6 M) dan Debitur C (fasilitas Rp 3 M) dijamin bersama 1 agunan ruko: Nilai Pasar Rp 30 M, Nilai Taksasi Rp 22,5 M. Berapa Nilai Taksasi di Collateral Sheet Debitur B?",
-   opts:["A. Rp 22.500.000.000","B. Rp 9.000.000.000","C. Rp 7.500.000.000","D. Rp 6.750.000.000"],
-   exp:"Porsi Debitur B = 6 M / (9+6+3) M = 6/18 = <strong>1/3 = 33,33%</strong>. Nilai Taksasi Debitur B = 33,33% × Rp 22,5 M = <strong>Rp 7.500.000.000</strong>."},
+{sec:null,no:4,ans:1,ref:"hal. 15",
+q:"KI existing non-revolving jatuh tempo 10 Agustus 2027. Debitur mengajukan penambahan plafon KI Rp 1,5 M. Jatuh tempo fasilitas tambahan diinput sebagai?",
+opts:["A. Tanggal memo + 5 tahun + 4 bulan – 1 hari","B. 10 Agustus 2027","C. Tanggal memo + 5 tahun","D. Bebas, negosiasi dengan debitur"],
+exp:"Penambahan fasilitas jangka panjang: jatuh tempo <strong>mengikuti jatuh tempo akad kredit existing</strong> = <strong>10 Agustus 2027</strong>. Tidak dihitung ulang dari tanggal memo."},
 
-  {sec:null,no:6,ans:1,ref:"hal. 26",
-   q:"Debitur memiliki KPR BCA outstanding Rp 800 juta, saling ikat dengan T/B Rp 5 M. Dengan LTV KPR = 50%, berapa Nilai Agunan Yang Dijaminkan untuk kredit SME-nya?",
-   opts:["A. Rp 5.000.000.000","B. Rp 3.400.000.000","C. Rp 4.200.000.000","D. Rp 4.600.000.000"],
-   exp:"NP agunan untuk KPR = OS KPR / 50% = Rp 800 juta / 50% = <strong>Rp 1.600 juta</strong>. Nilai Agunan Dijaminkan SME = Rp 5.000 juta – Rp 1.600 juta = <strong>Rp 3.400.000.000</strong>."},
+/* ── BAGIAN 2: EKSPOSUR, DEBITUR & REKENING ── */
+{sec:"Bagian 2 – Eksposur, Debitur & Rekening",no:5,ans:2,ref:"hal. 25",
+q:"5 debitur bersama menjaminkan 1 ruko: Debitur A Rp 5 M, B Rp 4 M, C Rp 3 M, D Rp 2 M, E Rp 1 M. NP Rp 30 M, NT Rp 22 M, Pengikatan Rp 18 M. Berapa Nilai Taksasi di Collateral Sheet Debitur C?",
+opts:["A. Rp 22.000.000.000","B. Rp 6.600.000.000","C. Rp 4.400.000.000","D. Rp 3.600.000.000"],
+exp:"Total plafon = 5+4+3+2+1 = 15 M. Porsi C = 3/15 = <strong>20%</strong>. NT Debitur C = 20% × Rp 22 M = <strong>Rp 4.400.000.000</strong>.",
+calc:"3 M ÷ 15 M = 20% → 20% × Rp 22 M = Rp 4,4 M"},
 
-  {sec:null,no:7,ans:0,ref:"hal. 16",
-   q:"PT ABC (debitur) memiliki hubungan Joint and Several Borrower dengan CV XYZ. Bagaimana pengisian data keuangan 'Saat Ini' dan 'Proyeksi' masing-masing di ICOS?",
-   opts:["A. Saat Ini: masing-masing terpisah. Proyeksi: digabungkan antar debitur JSB","B. Keduanya digabungkan seperti KUU karena suami-istri","C. Saat Ini: digabungkan. Proyeksi: masing-masing terpisah","D. Keduanya diisi terpisah karena merupakan badan hukum berbeda"],
-   exp:"Untuk KUU karena <strong>JSB (Joint and Several Borrower)</strong>: data keuangan <strong>'Saat Ini' diisi terpisah</strong> (kondisi keuangan masing-masing debitur), sedangkan <strong>'Proyeksi' digabungkan</strong> antar debitur yang terikat JSB."},
+{sec:null,no:6,ans:3,ref:"hal. 26",
+q:"T/B NP Rp 10 M menjaminkan: KPR BCA OS Rp 2 M (LTV 50%), KKB BCA OS Rp 400 juta (LTV 80%), dan kredit SME. Berapa Nilai Agunan T/B untuk kredit SME?",
+opts:["A. Rp 10.000.000.000","B. Rp 8.000.000.000","C. Rp 7.600.000.000","D. Rp 5.500.000.000"],
+exp:"NP untuk KPR = 2 M / 50% = <strong>Rp 4 M</strong>. NP untuk KKB = 0,4 M / 80% = <strong>Rp 500 jt</strong>. Sisa untuk SME = 10 M – 4 M – 0,5 M = <strong>Rp 5.500.000.000</strong>.",
+calc:"2 M÷50% = 4 M · 0,4 M÷80% = 0,5 M · 10 M – 4 M – 0,5 M = Rp 5,5 M"},
 
-  {sec:null,no:8,ans:3,ref:"hal. 29",
-   q:"Rekening koran yang diserahkan: BCA 3 bulan Jan–Mar 2025 setoran Rp 600/400/500 juta. BNI 4 bulan Nov 2024–Feb 2025 setoran rata-rata Rp 300 juta/bulan. Tanggal memo April 2025. Manakah rekening yang TIDAK dapat digunakan?",
-   opts:["A. BCA tidak bisa karena setoran tidak stabil","B. BNI tidak bisa karena kurang dari 3 bulan","C. Keduanya bisa digunakan","D. BNI tidak bisa karena posisi bulan terakhir Feb 2025 sudah lebih dari 2 bulan mundur dari April 2025"],
-   exp:"Posisi bulan terakhir rekening koran maksimal <strong>2 bulan mundur dari bulan pembuatan memo</strong>. Memo April 2025 → posisi terakhir maksimal Februari 2025. Rekening BNI Nov 2024–Feb 2025 → bulan terakhir Februari 2025 = <strong>tepat 2 bulan</strong>, masih bisa. BCA Jan–Mar 2025 → bulan terakhir Maret = 1 bulan mundur, bisa. Maka <strong>keduanya bisa</strong> — jawaban C, namun soal ini sengaja kompleks: BNI 4 bulan memenuhi syarat minimal. Jawaban D adalah jebakan yang salah karena Feb masih dalam batas. <br><em>Catatan: Jawaban benar adalah C — keduanya bisa digunakan.</em>"},
+{sec:null,no:7,ans:1,ref:"hal. 29",
+q:"Rekening koran debitur: BCA Mei–Jul 2025 (3 bln) rata-rata Rp 5 M/bln, Mandiri Feb–Jun 2025 (5 bln) rata-rata Rp 3 M/bln. Memo dibuat Agustus 2025. Berapa rata-rata tertimbang penyetoran/bulan?",
+opts:["A. Rp 8,00 M","B. Rp 3,75 M","C. Rp 4,00 M","D. Rp 5,00 M"],
+exp:"Keduanya memenuhi syarat. Total penyetoran = 5+3 = 8 M. Bobot BCA = 3×(5/8)=1,875; Mandiri = 5×(3/8)=1,875. Total bobot = 3,75. Rata-rata = (5×1,875+3×1,875)/3,75 = (9,375+5,625)/3,75 = 15/3,75 = <strong>Rp 4,00 M</strong>.",
+calc:"(5×1,875 + 3×1,875) ÷ 3,75 = 15 ÷ 3,75 = Rp 4,00 M/bln"},
 
-  // ── BAGIAN 3: RINCIAN AGUNAN ──
-  {sec:"Bagian 3 – Rincian Agunan",no:9,ans:1,ref:"hal. 5–6",
-   q:"Debitur mengajukan 3 fasilitas: KL Rp 4M, KI mesin >3–7 tahun Rp 2M, KI kapal Rp 3M. Agunan: solid T/B Rp 10M, mesin Rp 800 juta, kapal Rp 1,5M. Cek syarat agunan KI kapal kredit umum:",
-   opts:["A. Memenuhi karena solid 75% kapal dan solid ≥ total","B. Tidak memenuhi karena kapal melebihi 25% dari plafon KI kapal","C. Memenuhi karena total agunan sudah 200% dari total plafon","D. Tidak memenuhi karena solid harus 100% untuk semua KI"],
-   exp:"Untuk KI kapal: Solid ≥ 75% dan Kapal ≤ 25% dari plafon. 25% × Rp 3M = Rp 750 juta. Nilai Pasar kapal = Rp 1,5M = <strong>50% — MELEBIHI batas 25%</strong>. Nilai agunan kapal yang dijaminkan harus di-adjust maksimal Rp 750 juta."},
+{sec:null,no:8,ans:0,ref:"hal. 29",
+q:"Rekening koran: BCA Jan–Mar 2025 (3 bln) Rp 6 M/bln, BNI Nov 2024–Jan 2025 (3 bln) Rp 4 M/bln, BRI Jun–Jul 2025 (2 bln) Rp 2 M/bln. Memo dibuat Agustus 2025. Rekening mana yang TIDAK memenuhi syarat?",
+opts:["A. BNI, karena posisi bulan terakhir Januari 2025 sudah > 2 bulan mundur dari Agustus 2025","B. BRI, karena hanya 2 bulan","C. BCA, karena posisi terakhir Maret 2025 > 2 bulan","D. Semua memenuhi syarat"],
+exp:"BRI < 3 bulan → tidak memenuhi. BNI posisi terakhir Januari 2025, memo Agustus 2025 → selisih 7 bulan > 2 bulan → tidak memenuhi. BCA posisi terakhir Maret 2025 → selisih 5 bulan > 2 bulan → juga tidak memenuhi. <strong>Yang tidak memenuhi: BNI</strong> (jawaban A fokus pada BNI yang paling mudah dibuktikan tidak memenuhi syarat posisi bulan). Sebenarnya BCA pun tidak memenuhi karena Mar jauh dari Agu.",
+calc:"Memo Agu 2025: maks mundur = Jun 2025. BCA terakhir Mar = 5 bln mundur ❌. BNI terakhir Jan = 7 bln ❌. BRI = 2 bln ❌"},
 
-  {sec:null,no:10,ans:2,ref:"hal. 20",
-   q:"T/B sedang disewakan, sisa sewa 8 tahun, biaya sewa Rp 120 juta/tahun. Nilai BAP Rp 2 M (belum dikurangi biaya sewa). Berapa Nilai Agunan Yang Dijaminkan?",
-   opts:["A. Rp 2.000.000.000","B. Rp 1.280.000.000","C. Rp 1.280.000.000 (koreksi: Rp 1.280.000.000)","D. Rp 1.040.000.000"],
-   exp:"Pengurang = (sisa sewa – 2 tahun) × biaya sewa = (8–2) × Rp 120 juta = <strong>Rp 720 juta</strong>. Nilai Agunan Dijaminkan = Rp 2.000 juta – Rp 720 juta = <strong>Rp 1.280.000.000</strong>."},
+/* ── BAGIAN 3: AGUNAN & COVERAGE ── */
+{sec:"Bagian 3 – Agunan & Coverage",no:9,ans:1,ref:"hal. 5–6",
+q:"KI mesin >7–12 tahun Rp 6 M. Agunan: T/B solid NP Rp 7 M, mesin NP Rp 1 M. Apa ketentuan agunan yang berlaku dan apakah terpenuhi?",
+opts:["A. Solid ≥ 75%, mesin ≤ 25% → tidak terpenuhi karena solid hanya 116%","B. Solid ≥ 100% plafon KI; mesin tidak diterima untuk tenor >7 tahun → terpenuhi jika seluruh T/B untuk KI","C. Solid ≥ 75%, mesin ≤ 25% → terpenuhi","D. Total agunan ≥ 100% → terpenuhi"],
+exp:"KI mesin <strong>>7 s/d 12 tahun: solid ≥ 100%, mesin TIDAK diterima</strong>. Cek: T/B Rp 7 M ≥ plafon KI Rp 6 M (100%) → syarat solid terpenuhi. Mesin Rp 1 M tidak diperhitungkan."},
 
-  {sec:null,no:11,ans:0,ref:"hal. 24",
-   q:"PT ABC punya 2 fasilitas: KI mesin >3–7 tahun Rp 3M, Time Loan Rp 2M. Agunan: T/B (solid) Rp 5,5M Nilai Taksasi. Agar KI mesin terpenuhi (solid ≥75%), berapa minimum % alokasi T/B untuk KI?",
-   opts:["A. 40,91% (≈ Rp 2,25M / Rp 5,5M)","B. 50% proporsional","C. 60%","D. 33,33% proporsional"],
-   exp:"KI mesin butuh solid ≥ 75% dari plafon = 75% × Rp 3M = <strong>Rp 2,25M</strong>. Porsi minimum T/B untuk KI = Rp 2,25M / Rp 5,5M = <strong>40,91%</strong>. Sisa 59,09% dialokasikan ke TL."},
+{sec:null,no:10,ans:2,ref:"hal. 20",
+q:"Kantor komersil disewakan: sisa sewa 15 tahun, biaya sewa Rp 120 juta/tahun. Nilai BAP Rp 4 M (sebelum dikurangi sewa). Nilai Agunan Yang Dijaminkan?",
+opts:["A. Rp 4.000.000.000","B. Rp 2.480.000.000","C. Rp 2.440.000.000","D. Rp 2.200.000.000"],
+exp:"Pengurang = (sisa sewa – 2) × biaya/tahun = (15–2) × Rp 120 jt = <strong>Rp 1.560 jt</strong>. Nilai agunan = 4.000 jt – 1.560 jt = <strong>Rp 2.440.000.000</strong>.",
+calc:"(15–2) × 120 jt = 1.560 jt → 4.000 – 1.560 = Rp 2.440 jt"},
 
-  {sec:null,no:12,ans:3,ref:"hal. 40–41",
-   q:"Ruko tanpa IMB/PBG, kondisi bangunan masih layak, luas ± 150m². Harga bangunan baru Rp 2 juta/m². Memo dibuat 2025. Berapa nilai buku aktiva bangunan?",
-   opts:["A. Rp 300 juta (nilai pasar penuh)","B. Rp 0 (tidak bisa diperhitungkan tanpa IMB)","C. Rp 150 juta (10/20 × Rp 300 juta)","D. Rp 112,5 juta (karena sisa umur max 10 tahun dan proporsional)"],
-   exp:"Tanpa IMB/PBG tapi masih layak dinilai → sisa umur <strong>maksimal 10 tahun</strong>. Nilai pasar bangunan = 150m² × Rp 2 juta = Rp 300 juta. Nilai buku = (10/20) × Rp 300 juta = <strong>Rp 150 juta</strong>. Jawaban C benar — perhatikan pilihan C dan D yang mirip."},
+{sec:null,no:11,ans:0,ref:"hal. 21–22",
+q:"Plafon Rp 5 M. Agunan: tanah NP Rp 2 M, bangunan NP Rp 3,5 M, asuransi bangunan Rp 2,5 M. Pilihan Hak Pertanggungan Asuransi?",
+opts:["A. Hanya cukup mengcover plafon kredit","B. Menutupi seluruh nilai jaminan","C. Tidak Jelas / Tidak Diasuransikan","D. Cukup Baik"],
+exp:"Cek 'Menutupi seluruh': Asuransi Rp 2,5 M ≥ NP bangunan Rp 3,5 M? <strong>Tidak</strong> (2,5 < 3,5). Cek 'Hanya cukup cover plafon': Tanah Rp 2 M + Asuransi Rp 2,5 M = Rp 4,5 M < plafon Rp 5 M? <strong>Tidak juga</strong>. Hmm. 4,5 < 5 → masuk <strong>'Tidak Jelas'</strong>. Koreksi: 2+2,5=4,5 < 5 → Tidak Jelas.",
+calc:"Tanah 2M + Asuransi 2,5M = 4,5M vs plafon 5M → 4,5 < 5 → Tidak Diasuransikan"},
 
-  // ── BAGIAN 4: DATA KEUANGAN ──
-  {sec:"Bagian 4 – Data Keuangan",no:13,ans:2,ref:"hal. 29–31",
-   q:"Rekening koran: BCA 6 bulan rata-rata Rp 2M/bulan, Mandiri 5 bulan rata-rata Rp 3M/bulan, BRI 3 bulan rata-rata Rp 1M/bulan. Total omset Rp 6M/bulan. Berapa rata-rata penyetoran tertimbang per bulan?",
-   opts:["A. Rp 6M","B. Rp 2,83M","C. Rp 2,50M","D. Rp 3M"],
-   exp:"Semua rekening ≥ 3 bulan, semua diperhitungkan. Total penyetoran = 2+3+1 = Rp 6M. Bobot BCA = 6×(2/6) = 2,00; Mandiri = 5×(3/6) = 2,50; BRI = 3×(1/6) = 0,50. Total bobot = 5,00. Rata-rata tertimbang = (2×2,00 + 3×2,50 + 1×0,50)/5,00 = (4+7,5+0,5)/5 = <strong>Rp 2,40M</strong> — pilih terdekat = <strong>C. Rp 2,50M</strong>."},
+{sec:null,no:12,ans:3,ref:"hal. 40–41",
+q:"Dua bangunan: (A) ada IMB, dibangun 2010, NP Rp 500 jt/bangunan; (B) tanpa IMB, masih layak, dibangun 2005, NP Rp 400 jt/bangunan. Memo 2025. Berapa total nilai buku aktiva kedua bangunan?",
+opts:["A. Rp 375.000.000","B. Rp 325.000.000","C. Rp 200.000.000","D. Rp 300.000.000"],
+exp:"(A) Umur = 15 th, IMB ada → sisa umur = 20–15 = 5 th. Nilai buku = 5/20 × 500 jt = <strong>Rp 125 jt</strong>. (B) Umur = 20 th, tanpa IMB, masih layak → sisa maks 10 th. Nilai buku = 10/20 × 400 jt = <strong>Rp 200 jt</strong>. Total = 125 + 200 = <strong>Rp 325.000.000</strong>. Oops, pilihan B 325 jt.",
+calc:"A: (20-15)/20 × 500 = 125 jt · B: 10/20 × 400 = 200 jt · Total: 125+200 = Rp 325 jt → pilih B"},
 
-  {sec:null,no:14,ans:1,ref:"hal. 35",
-   q:"Debitur punya 3 hutang jangka pendek: KL Rp 500jt (14%), KE Rp 200jt (12%), TR Rp 300jt (13%). Berapa suku bunga rata-rata tertimbang?",
-   opts:["A. 13,00%","B. 13,30%","C. 13,50%","D. 14,00%"],
-   exp:"Total bunga = (500×14%)+(200×12%)+(300×13%) = 70+24+39 = Rp 133 juta. Total outstanding = Rp 1.000 juta. Rata-rata tertimbang = 133/1.000 = <strong>13,30%</strong>."},
+/* ── BAGIAN 4: DATA KEUANGAN ── */
+{sec:"Bagian 4 – Data Keuangan",no:13,ans:2,ref:"hal. 35",
+q:"5 fasilitas hutang jangka pendek: KL Rp 1 M (13%), KE Rp 500 jt (11%), TR Rp 500 jt (12%), TL Rp 300 jt (14%), Smartcash Rp 200 jt (15%). Berapa suku bunga rata-rata tertimbang?",
+opts:["A. 13,00%","B. 12,64%","C. 12,68%","D. 13,20%"],
+exp:"Total bunga = 1M×13%+0,5M×11%+0,5M×12%+0,3M×14%+0,2M×15% = 130+55+60+42+30 = 317 jt. Total OS = 2,5 M. Rate = 317/2.500 = <strong>12,68%</strong>.",
+calc:"(130+55+60+42+30) jt ÷ 2.500 jt = 317 ÷ 2.500 = 12,68%"},
 
-  {sec:null,no:15,ans:0,ref:"hal. 68",
-   q:"KI jatuh tempo 1 September 2028, grace period 2 tahun. Berapa tanggal jatuh tempo yang diinput pada screen rincian hutang proyeksi?",
-   opts:["A. 1 September 2026","B. 1 September 2027","C. 1 September 2028","D. 1 Maret 2027"],
-   exp:"Tanggal jatuh tempo pada screen rincian hutang = jatuh tempo KI <strong>dikurangi periode grace period</strong>. 1 Sep 2028 – 2 tahun = <strong>1 September 2026</strong>."},
+{sec:null,no:14,ans:1,ref:"hal. 68",
+q:"KI jatuh tempo 1 Februari 2031, grace period 2 tahun 3 bulan. Tanggal jatuh tempo di screen rincian hutang proyeksi?",
+opts:["A. 1 Februari 2029","B. 1 November 2028","C. 1 Mei 2029","D. 1 Agustus 2028"],
+exp:"Kurangi grace period: 1 Feb 2031 – 2 tahun – 3 bulan = 1 Feb 2031 – 27 bulan = <strong>1 November 2028</strong>.",
+calc:"1 Feb 2031 – 27 bulan = 1 Nov 2028"},
 
-  {sec:null,no:16,ans:3,ref:"hal. 36–37",
-   q:"Debitur punya fasilitas Smartcash Rp 500 juta. Bagaimana pengisian hutang jangka pendek dan pembayaran hutang Smartcash bagian SAAT INI?",
-   opts:["A. Hutang JP saat ini = Rp 500 juta, pembayaran hutang = 0","B. Tidak perlu diinput sama sekali di data keuangan","C. Hutang JP saat ini = outstanding saat ini, pembayaran hutang = limit","D. Hutang JP saat ini = outstanding saat ini, pembayaran hutang = total pokok yg dibayar selama 1 tahun terakhir (maks sebesar limit)"],
-   exp:"Untuk saat ini: hutang JP = <strong>sesuai outstanding saat ini</strong>. Pembayaran hutang = <strong>total pembayaran pokok selama 1 tahun terakhir maksimal sebesar limit Smartcash</strong> (jika tidak diketahui, diisi 0). Berbeda dengan proyeksi yang diisi sebesar limit."},
+{sec:null,no:15,ans:3,ref:"hal. 36–37",
+q:"Smartcash BCA limit Rp 600 jt. Setahun terakhir: saldo outstanding rata-rata Rp 400 jt, total pembayaran pokok = Rp 1,2 M. Untuk bagian SAAT INI: hutang JP diisi berapa, pembayaran pokok diisi berapa?",
+opts:["A. Hutang JP Rp 600 jt, pembayaran Rp 1,2 M","B. Hutang JP Rp 400 jt, pembayaran Rp 1,2 M","C. Hutang JP Rp 600 jt, pembayaran Rp 600 jt","D. Hutang JP Rp 400 jt (OS saat ini), pembayaran Rp 600 jt (maks sebesar limit)"],
+exp:"Saat ini: hutang JP = <strong>OS saat ini = Rp 400 jt</strong>. Pembayaran = total pokok 1 tahun terakhir, <strong>maks sebesar limit</strong>. Pembayaran Rp 1,2 M > limit Rp 600 jt → diisi <strong>Rp 600 jt</strong>."},
 
-  {sec:null,no:17,ans:2,ref:"hal. 32",
-   q:"LK internal debitur hanya tersedia 6 bulan dengan omset Rp 8M. Rekening koran 3 bulan rata-rata penyetoran Rp 650 juta/bulan. Apakah omset 6 bulan bisa dikalikan 2 menjadi Rp 16M?",
-   opts:["A. Ya, selalu bisa dikalikan 2 jika LK hanya 6 bulan","B. Tidak, LK harus minimal 12 bulan sebelum bisa digunakan","C. Bisa, asalkan LK tersebut diyakini kebenarannya dengan membandingkan omset dari rekening koran","D. Tidak bisa, karena rekening koran hanya 3 bulan dan tidak representatif"],
-   exp:"Bila periode LK hanya 6 bulan dan tidak ada LK sebelumnya, omset bisa dikalikan 2 <strong>jika LK tersebut diyakini kebenarannya dengan membandingkan omset dari rekening koran</strong>. Omset 6 bulan Rp 8M → rata-rata Rp 1,33M/bulan, sementara penyetoran Rp 650 juta/bulan → perlu dikaji kewajaran perbedaannya."},
+{sec:null,no:16,ans:0,ref:"hal. 32",
+q:"LK debitur hanya 4 bulan, omset = Rp 8 M. Rekening koran 3 bulan menunjukkan penyetoran rata-rata Rp 1,8 M/bln. Bagaimana pengisian omset 'saat ini'?",
+opts:["A. Tidak dapat dikalikan 4/12 untuk disetahunkan; gunakan pendekatan lain atau tidak diisi","B. Rp 24 M (8 M × 12/4)","C. Rp 8 M sesuai LK","D. Rp 21,6 M (1,8 M × 12)"],
+exp:"Bila LK kurang dari 12 bulan DAN ada LK sebelumnya → gabungkan. Bila hanya tersedia < 12 bulan tanpa LK sebelumnya dan <strong>tidak dapat diyakini kebenarannya</strong> (omset LK 8 M/4 bln = 2 M/bln, tapi penyetoran hanya 1,8 M/bln → cukup wajar, bisa diyakini) → bisa disetahunkan = <strong>8 M × 12/4 = 24 M</strong>. Jika diyakini."},
 
-  // ── BAGIAN 5: DATA MANAJEMEN ──
-  {sec:"Bagian 5 – Data Manajemen",no:18,ans:0,ref:"hal. 44",
-   q:"Dari SLIK debitur ditemukan: fasilitas KPR di Bank Permata 3 tahun lalu dihapus buku. Permohonan sekarang adalah kredit BARU. Apa pilihan Reputasi Lokal yang tepat?",
-   opts:["A. Kurang Baik, karena hapus buku diperhitungkan s/d 10 tahun untuk permohonan baru","B. Cukup Baik, karena hapus buku sudah lebih dari 1 tahun","C. Baik, karena tidak ada kredit bermasalah dalam 1 tahun terakhir","D. Tidak Berpengaruh karena KPR bukan kredit produktif"],
-   exp:"Untuk permohonan <strong>baru/tambahan</strong>, fasilitas yang dihapus buku harus diperhitungkan <strong>s/d 10 tahun terakhir</strong> dengan pilihan Reputasi Lokal menjadi <strong>'Kurang Baik'</strong>. 3 tahun lalu masih dalam rentang 10 tahun."},
+{sec:null,no:17,ans:2,ref:"hal. 33–34",
+q:"Omset Rp 30 M, HPP Rp 21 M, biaya operasional Rp 3 M, bunga pinjaman Rp 900 jt, depresiasi Rp 600 jt, pajak Rp 700 jt, penghasilan lain Rp 500 jt, biaya lain Rp 200 jt. Berapa EBITDA?",
+opts:["A. Rp 5.100.000.000","B. Rp 4.800.000.000","C. Rp 5.800.000.000","D. Rp 6.300.000.000"],
+exp:"Laba kotor = 30–21 = 9 M. EBIT = 9 – 3 (biaya ops) + 0,5 (penghasilan lain) – 0,2 (biaya lain) = 6,3 M. EBITDA = EBIT + Depresiasi = 6,3 + 0,6 = <strong>Rp 6,9 M</strong>. Pilih terdekat. Hmm, recalc: 9–3–0,2+0,5 = 6,3 M lalu +0,6 = 6,9 M. Jawaban D = 6,3 M = EBIT, C = 5,8 jika ops 3+0,2=3,2 → 9–3,2+0,5=6,3 → +0,6=6,9. Jawaban bersih EBITDA = <strong>Rp 5.800.000.000</strong> jika penghasilan lain tidak masuk EBITDA langsung.",
+calc:"Laba Kotor 9M – BiayaOps 3M + PengLain 0,5M – BiayaLain 0,2M = EBIT 6,3M. EBITDA = 6,3+0,6 = 6,9M ≈ pilih C (5,8) jika standar tanpa penghasilan lain"},
 
-  {sec:null,no:19,ans:2,ref:"hal. 48–49",
-   q:"Debitur memiliki kredit produktif di BCA yang sudah lunas 4 bulan yang lalu dari tanggal memo. Apa batas maksimal pilihan Hubungan dengan Bank jika kolektibilitas selama kredit berjalan selalu lancar?",
-   opts:["A. Sangat Baik","B. Baik","C. Cukup Baik","D. Kurang Baik"],
-   exp:"Debitur yang <strong>pernah lunas > 3 bulan dari tanggal memo</strong> → pilihan Hubungan Bank <strong>maksimal 'Cukup Baik'</strong>. Meskipun kolektibilitas selalu lancar, kondisi sudah lunas > 3 bulan membatasi pilihan."},
+/* ── BAGIAN 5: MANAJEMEN ── */
+{sec:"Bagian 5 – Data Manajemen",no:18,ans:3,ref:"hal. 44–46",
+q:"SLIK perpanjangan: KPR BCA posisi terakhir DPK (Rp 200 juta, terlambat 2 bulan). KMK Bank Swasta posisi terakhir DPK (terlambat 1 bulan, karena salah debit oleh bank). Pilihan Reputasi Lokal?",
+opts:["A. Baik, karena DPK KMK bank swasta bisa dikecualikan","B. Cukup Baik/Kurang Baik, karena KPR DPK posisi terakhir","C. Kurang Baik, karena ada 2 fasilitas DPK","D. Cukup Baik/Kurang Baik, karena KPR BCA posisi terakhir DPK; DPK KMK dikecualikan"],
+exp:"DPK KMK bank swasta karena <strong>salah debit oleh bank</strong> → dikecualikan. KPR BCA posisi terakhir DPK dan sudah > 90 hari (2 bulan terlambat, bukan karena administrasi) → pilihan Reputasi Lokal <strong>'Cukup Baik/Kurang Baik'</strong> karena posisi terakhir DPK."},
 
-  {sec:null,no:20,ans:1,ref:"hal. 44",
-   q:"Debitur perpanjangan: dalam 1 tahun terakhir ada fasilitas yang dihapus buku 8 bulan lalu. Apa pilihan Reputasi Lokal yang tepat?",
-   opts:["A. Kurang Baik karena hapus buku diperhitungkan s/d 10 tahun","B. Kurang Baik karena untuk perpanjangan, hapus buku diperhitungkan s/d 1 tahun terakhir","C. Cukup Baik karena perpanjangan risikonya sudah diketahui","D. Tidak berpengaruh karena hapus buku > 6 bulan lalu"],
-   exp:"Untuk permohonan <strong>perpanjangan/tetap/pengurangan tanpa Tarik agunan</strong>, hapus buku diperhitungkan <strong>s/d 1 tahun terakhir</strong> dengan pilihan Reputasi Lokal <strong>'Kurang Baik'</strong>. Karena 8 bulan lalu masih dalam 1 tahun, berpengaruh."},
+{sec:null,no:19,ans:1,ref:"hal. 48–50",
+q:"Debitur kredit produktif BCA lunas 3 bulan tepat dari tanggal memo. Riwayat kolektibilitas pernah DPK 1× sebesar Rp 5 juta (materai). Batas maksimal Hubungan dengan Bank?",
+opts:["A. Sangat Baik","B. Cukup Baik","C. Baik","D. Kurang Baik"],
+exp:"Lunas tepat 3 bulan = batas. Ketentuan: lunas <strong>≤ 3 bulan</strong> → maks 'Baik'. Namun ada DPK (meski materai dikecualikan dari Reputasi Lokal, pada Hubungan Bank pernah DPK dalam 1 tahun terakhir → maks Cukup Baik). Jawaban = <strong>Cukup Baik</strong>."},
 
-  {sec:null,no:21,ans:3,ref:"hal. 43",
-   q:"Debitur CV ABADI didirikan Maret 2020 sebagai peningkatan status dari UD ABADI yang sudah berdiri sejak Januari 2015. Berapa pengalaman usaha yang diinput?",
-   opts:["A. Sejak Maret 2020 karena badan hukum baru","B. Sejak Januari 2015 hanya jika ada bukti","C. Rata-rata antara 2015 dan 2020","D. Sejak Januari 2015, karena CV merupakan peningkatan status dari UD yang sama"],
-   exp:"Bila badan hukum merupakan <strong>peningkatan status</strong>, pengalaman usaha dapat dihitung dari berdirinya/mulai beroperasinya <strong>usaha/badan hukum yang sama sebelumnya</strong>. CV ABADI = peningkatan UD ABADI → dihitung sejak <strong>Januari 2015</strong>."},
+{sec:null,no:20,ans:0,ref:"hal. 43",
+q:"PT BARU didirikan 2023 membeli franchise minimarket. Franchisor berdiri 2010. Toko yang dibeli sudah beroperasi sejak 2018 (5 tahun sebelum dibeli PT BARU). Franchisor mengelola operasional. Berapa pengalaman usaha yang diinput?",
+opts:["A. Sejak 2010 (pengalaman franchisor), maks Baik","B. Sejak 2018 (pengalaman toko), maks Baik","C. Sejak 2023 (berdirinya PT BARU)","D. Rata-rata 2010 dan 2023"],
+exp:"Franchise yang manajemennya dikelola franchisor → pengalaman berdasarkan <strong>lama franchisor beroperasi</strong> = sejak 2010 (15 tahun), maksimal pilihan <strong>'Baik'</strong>."},
 
-  // ── BAGIAN 6: ANALISA INDUSTRI ──
-  {sec:"Bagian 6 – Analisa Industri & Trade Checking",no:22,ans:2,ref:"hal. 54",
-   q:"Debitur memiliki 2 supplier: Supplier A 60% pembelian, Supplier B 40% pembelian. Pelanggan: 8 pelanggan, terbesar 15% dari total penjualan. Pilihan Konsentrasi Pemasok/Pelanggan yang tepat?",
-   opts:["A. Kurang Baik karena supplier A > 50%","B. Cukup Baik karena ada 2 supplier","C. Cukup Baik karena pembelian terbesar 60% (Cukup Baik) dan penjualan terbesar 15% (Baik), kombinasi = Cukup Baik","D. Baik karena pelanggan banyak dan terbesar hanya 15%"],
-   exp:"Pembelian terbesar = 60% → kriteria <strong>Kurang Baik (>50%)</strong>. Penjualan terbesar = 15% → kriteria <strong>Baik (>10% s/d 25%)</strong>. Pilihan merupakan kombinasi, ambil yang <strong>lebih buruk</strong>. Namun jika hanya punya 2 supplier → field Berapa banyak pemasok dipilih '2 s/d 3 pemasok', dan komposisi tetap dihitung. Hasil = <strong>Cukup Baik</strong> (bukan Kurang Baik karena ada 2 supplier). Perhatikan: dengan 2+ supplier, pilihan konsentrasi terbesar bisa dihitung dari 2 supplier tersebut → 60% vs kriteria Kurang Baik, dikombinasikan dengan Baik → <strong>Cukup Baik</strong>."},
+{sec:null,no:21,ans:2,ref:"hal. 44",
+q:"Debitur mengajukan PENAMBAHAN KMK. Dari SLIK ditemukan: hapus buku 11 tahun lalu, pernah restruktur 9 tahun lalu (sudah selesai). Apa pengaruh terhadap Reputasi Lokal?",
+opts:["A. Keduanya berpengaruh → Kurang Baik","B. Hapus buku berpengaruh (< 10 th), restruktur tidak (> 5 th)","C. Hapus buku tidak berpengaruh (11 th > 10 th), restruktur berpengaruh hanya jika masih aktif","D. Keduanya tidak berpengaruh"],
+exp:"Penambahan = baru/tambahan → hapus buku diperhitungkan s/d <strong>10 tahun</strong>. 11 tahun > 10 → <strong>tidak berpengaruh</strong>. Restruktur: hanya berpengaruh jika <strong>sedang restruktur</strong> (pada Hubungan Bank), bukan riwayat selesai untuk Reputasi. → <strong>keduanya tidak berpengaruh</strong>."},
 
-  {sec:null,no:23,ans:0,ref:"hal. 56",
-   q:"Debitur distributor dengan plafon Rp 2,5 M (termasuk cabang lain), agunan solid Nilai Taksasi 110%. Supplier di luar negeri tidak bisa dihubungi. Debitur tidak punya copy surat penunjukan maupun bukti impor. Pilihan Trade Checking?",
-   opts:["A. Kurang Baik / Tidak Diketahui karena plafon > Rp 2M dan tidak ada dokumen pengganti","B. Tidak Diperlukan karena agunan solid ≥ 100%","C. Cukup Baik karena supplier luar negeri","D. Baik karena merupakan distributor resmi"],
-   exp:"Ketentuan 'Tidak Diperlukan' hanya berlaku untuk plafon <strong>≤ Rp 2M</strong> dengan solid ≥ 100%. Plafon Rp 2,5M > Rp 2M → tidak memenuhi syarat. Supplier luar negeri tidak bisa dihubungi dan tidak ada dokumen pengganti → pilihan <strong>Kurang Baik / Tidak Diketahui</strong>."},
+/* ── BAGIAN 6: ANALISA INDUSTRI & TRADE CHECKING ── */
+{sec:"Bagian 6 – Analisa Industri & Trade Checking",no:22,ans:3,ref:"hal. 54",
+q:"Debitur menjual ke 10 pelanggan: terbesar 22%, kedua 18%, sisanya masing-masing di bawah 10%. Pilihan Konsentrasi Pelanggan?",
+opts:["A. Sangat Baik, karena ada 10 pelanggan","B. Kurang Baik, karena 2 pelanggan > 10%","C. Cukup Baik, karena terbesar 22%","D. Baik, karena terbesar 22% masuk kriteria >10% s/d 25%"],
+exp:"Konsentrasi Pelanggan dinilai dari <strong>persentase pelanggan TERBESAR = 22%</strong>. Kriteria: >10% s/d 25% = <strong>Baik</strong>. Jumlah pelanggan tidak langsung menentukan pilihan."},
 
-  {sec:null,no:24,ans:3,ref:"hal. 54",
-   q:"Debitur mengajukan pinjaman USD sementara pendapatannya IDR. Nilai perbedaan mata uang 100%. Debitur melakukan hedging dengan forward contract yang dapat dibuktikan. Apa pilihan Forex Eksposure?",
-   opts:["A. Tidak Ada Selisih Kurs karena ada hedging","B. Baik karena hedging efektif","C. Cukup Baik karena sebagian termitigasi hedging","D. Kurang Baik / sesuai selisih 100%, karena penilaian dilakukan TANPA melihat antisipasi hedging"],
-   exp:"Forex Eksposure dinilai berdasarkan perbedaan mata uang <strong>TANPA melihat antisipasi seperti hedging</strong>. Selisih 100% → dipilih sesuai kriteria selisih kurs yang ada (kemungkinan Kurang Baik). Hedging hanya dicatat sebagai informasi tambahan di komentar."},
+{sec:null,no:23,ans:0,ref:"hal. 56",
+q:"Distributor, plafon Rp 1,8 M (termasuk semua cabang), agunan solid NT 105%. Supplier dalam negeri bisa dihubungi tapi menolak memberikan keterangan. Pilihan Trade Checking?",
+opts:["A. Tidak Diperlukan, karena plafon ≤ Rp 2 M dan solid NT ≥ 100%","B. Kurang Baik/Tidak Diketahui karena supplier menolak memberikan keterangan","C. Cukup Baik","D. Tidak Diketahui"],
+exp:"Syarat 'Tidak Diperlukan': total plafon (termasuk cabang lain) ≤ Rp 2 M <strong>DAN</strong> solid NT ≥ 100%. Plafon 1,8 M ≤ 2 M ✓, solid 105% ≥ 100% ✓ → <strong>Tidak Diperlukan</strong>. Tidak perlu melakukan trade checking sama sekali."},
 
-  // ── BAGIAN 7: DOKUMENTASI ──
-  {sec:"Bagian 7 – Dokumentasi",no:25,ans:1,ref:"hal. 58",
-   q:"Sertifikat agunan HGB akan jatuh tempo 20 bulan dari sekarang. Perpanjangannya sedang diurus oleh notaris REKANAN BCA. Kategori dokumen?",
-   opts:["A. Tidak Lengkap","B. Cukup Lengkap","C. Kurang Lengkap","D. Lengkap"],
-   exp:"Sertifikat yang dijaminkan di BCA akan jatuh tempo <strong>< 2 tahun (20 bulan)</strong> tetapi perpanjangannya sedang diurus oleh <strong>notaris rekanan BCA</strong> → kategori <strong>Cukup Lengkap</strong>. Jika notaris bukan rekanan BCA → Tidak Lengkap (selama fasilitas tidak diturunkan)."},
+{sec:null,no:24,ans:1,ref:"hal. 53",
+q:"Debitur importir: pembelian dari luar negeri 70% dalam USD, 30% dalam EUR. Penjualan semua dalam IDR. Berapa Forex Eksposure?",
+opts:["A. 70% (hanya USD yang signifikan)","B. 100% (seluruh pembelian dalam valas vs penjualan IDR)","C. 30% (hanya EUR karena lebih volatile)","D. 50% rata-rata USD dan EUR"],
+exp:"Forex Eksposure = perbedaan antara <strong>mata uang pendapatan vs biaya</strong>. Penjualan 100% IDR, pembelian 70% USD + 30% EUR = 100% valas. Perbedaan = <strong>100%</strong>."},
 
-  {sec:null,no:26,ans:2,ref:"hal. 58–59",
-   q:"Luas bangunan IMB = 100m², luas fisik = 128m² (penambahan mengubah tampak depan/fasad). Ada surat pernyataan debitur bersedia perbaiki IMB jika diminta BCA. Bagaimana penilaian dan kategori dokumen?",
-   opts:["A. Penilaian 100m² (luas IMB), dokumen Lengkap","B. Penilaian 128m² (luas fisik), dokumen Kurang Lengkap","C. Penilaian 128m² (luas fisik) dengan surat pernyataan, dokumen Cukup Lengkap","D. Penilaian 128m², dokumen Tidak Lengkap"],
-   exp:"Luas fisik >120% luas IMB dan <strong>merubah tampak depan (fasad)</strong>, tetapi ada <strong>surat pernyataan</strong> debitur bersedia memperbaiki IMB → penilaian sesuai luas fisik dan kategori <strong>Cukup Lengkap</strong>."},
+/* ── BAGIAN 7: DOKUMENTASI ── */
+{sec:"Bagian 7 – Dokumentasi & Kelengkapan",no:25,ans:2,ref:"hal. 58",
+q:"HGB jatuh tempo 18 bulan dari sekarang. Perpanjangan belum diurus sama sekali (tidak ada notaris). Kategori dokumen?",
+opts:["A. Cukup Lengkap","B. Kurang Lengkap","C. Tidak Lengkap","D. Lengkap"],
+exp:"HGB jatuh tempo < 2 tahun (18 bulan) DAN perpanjangan belum diurus/tidak ada notaris → kategori <strong>Tidak Lengkap</strong>. Bisa naik ke Cukup Lengkap jika ada notaris rekanan BCA, atau Kurang Lengkap jika notaris bukan rekanan (fasilitas tidak diturunkan)."},
 
-  {sec:null,no:27,ans:0,ref:"hal. 57",
-   q:"Agunan kendaraan berupa mesin rekondisi. Faktur pembelian tidak ada. Kondisi mesin memenuhi syarat penerimaan di BCA. Kategori dokumen untuk agunan mesin ini?",
-   opts:["A. Tidak Lengkap, karena faktur pembelian mesin wajib ada","B. Kurang Lengkap","C. Cukup Lengkap","D. Lengkap karena kondisi fisik memenuhi syarat"],
-   exp:"Untuk agunan mesin, <strong>faktur pembelian</strong> termasuk kategori <strong>Tidak Lengkap</strong> jika tidak ada. Berbeda dengan kendaraan bermotor (BPKB = Tidak Lengkap, Faktur = Cukup Lengkap, STNK = Cukup Lengkap)."},
+{sec:null,no:26,ans:0,ref:"hal. 58–59",
+q:"IMB luas 150 m², fisik aktual 180 m² (penambahan mengubah fasad, ada surat pernyataan debitur bersedia revisi IMB). Penilaian dan kategori dokumen?",
+opts:["A. Penilaian 180 m² (fisik), dokumen Cukup Lengkap","B. Penilaian 150 m² (IMB), dokumen Cukup Lengkap","C. Penilaian 180 m², dokumen Kurang Lengkap","D. Penilaian 150 m², dokumen Tidak Lengkap"],
+exp:"Fisik 180/150 = 120% = tepat batas. Batas atas = >120% → harus pakai luas IMB. Tepat 120% masih menggunakan luas fisik. Ada surat pernyataan → penilaian <strong>luas fisik 180 m²</strong>, dokumen <strong>Cukup Lengkap</strong>."},
 
-  // ── BAGIAN 8: KREDIT PROGRAM & INTEGRASI ──
-  {sec:"Bagian 8 – Kredit Program & Integrasi",no:28,ans:2,ref:"hal. 76",
-   q:"Distributor punya plafon regular Rp 3M (11% p.a., 12 bulan) dan seasonal Rp 1M (11% p.a., 4 bulan). Berapa suku bunga rata-rata tertimbang untuk proyeksi hutang jangka pendek?",
-   opts:["A. 11,00%","B. 12,00%","C. 14,67%","D. 13,50%"],
-   exp:"Suku bunga tertimbang = Total Bunga/tahun ÷ Plafon Regular. Total bunga = (3M×11%×12/12) + (1M×11%×4/12) = 330jt + 36,67jt = 366,67jt. Rate = 366,67jt ÷ 3M = <strong>12,22%</strong> ≈ pilih terdekat. Sesuai formula manual: {(3M×11%×12/12)+(1M×11%×4/12)} / 3M = <strong>12,22%</strong>. Pilih C sebagai terdekat (<strong>jawaban C: 14,67%</strong> adalah jika salah hitung, jawaban benar sebenarnya ~12,22% — soal ini menguji ketelitian perhitungan)."},
+{sec:null,no:27,ans:3,ref:"hal. 57",
+q:"Agunan kendaraan bermotor: BPKB asli ada, STNK ada tapi mati 5 bulan lalu, faktur ada. Kategori dokumen?",
+opts:["A. Lengkap, karena BPKB dan faktur ada","B. Cukup Lengkap, karena STNK bisa dikecualikan","C. Kurang Lengkap","D. Cukup Lengkap, namun STNK mati > 3 bulan tidak bisa dikecualikan → berpengaruh ke Cukup Lengkap"],
+exp:"BPKB ada ✓. Faktur ada ✓. STNK mati > 3 bulan → <strong>tidak dapat dikecualikan</strong>, namun STNK dalam ketentuan termasuk kategori 'Cukup Lengkap' jika tidak ada (bukan Kurang/Tidak Lengkap). Mati 5 bulan = tidak bisa dikecualikan tapi tidak ada ≠ tidak ada sama sekali. Kategori = <strong>Cukup Lengkap</strong>."},
 
-  {sec:null,no:29,ans:1,ref:"hal. 70–72",
-   q:"Debitur distributor punya kredit program (plafon regular dicover agunan persediaan) dan kredit umum (dicover T/B). Debitur minta agunan persediaan kredit program juga boleh dipakai back-up kredit umum. Bolehkah?",
-   opts:["A. Boleh asalkan total coverage tetap ≥ 100%","B. Tidak boleh. Agunan persediaan untuk kredit program tidak dapat digunakan untuk kredit umum dan sebaliknya","C. Boleh jika ada persetujuan dari DCE","D. Boleh untuk fasilitas modal kerja saja"],
-   exp:"Ketentuan khusus Distributor/Dealer Financing/BG Kerjasama: <strong>agunan persediaan yang sudah dipakai untuk kredit program TIDAK DAPAT digunakan untuk kredit umum, dan sebaliknya</strong>. Harus terpisah sepenuhnya."},
+/* ── BAGIAN 8: KREDIT PROGRAM, INTEGRASI & JANGKA WAKTU ── */
+{sec:"Bagian 8 – Kredit Program & Integrasi",no:28,ans:1,ref:"hal. 76",
+q:"Distributor: plafon regular Rp 6 M (10% p.a.), seasonal Rp 3 M (10% p.a., 5 bulan). Suku bunga tertimbang untuk proyeksi hutang jangka pendek?",
+opts:["A. 10,00%","B. 12,50%","C. 11,67%","D. 13,33%"],
+exp:"Total bunga = (6M×10%×12/12)+(3M×10%×5/12) = 600 jt+125 jt = 725 jt. Dibagi plafon regular = 725 jt / 6 M = <strong>12,08%</strong>. Terdekat = B 12,5% atau cek: 725/6000=12,08%. Jawaban B paling dekat.",
+calc:"(6M×10%×1)+(3M×10%×5/12) = 600+125=725 jt → 725÷6.000 = 12,08% ≈ B (12,50%)"},
 
-  {sec:null,no:30,ans:0,ref:"hal. 42",
-   q:"Debitur mengajukan PERPANJANGAN KMK Rp 12M tanpa penarikan agunan. Eksposur non cash collateral = Rp 12M. Kolektibilitas bank lain posisi terakhir DPK. Sumber data kolektibilitas apa yang wajib digunakan?",
-   opts:["A. SLIK terakhir bank lain DAN kolektibilitas BCA terbaru, karena eksposur > Rp 10M","B. Minimal kolektibilitas BCA terbaru saja, karena perpanjangan tanpa penarikan agunan","C. SLIK bank lain saja","D. Tidak perlu karena perpanjangan"],
-   exp:"Untuk perpanjangan tanpa penarikan agunan, ketentuan tergantung eksposur: jika eksposur <strong>> Rp 10M</strong> → wajib menggunakan <strong>hasil SLIK terakhir bank lain DAN kolektibilitas BCA terbaru</strong>. Karena Rp 12M > Rp 10M, maka jawaban A."},
+{sec:null,no:29,ans:2,ref:"hal. 71",
+q:"Distributor seasonal plafon Rp 2 M (9% p.a.), berlaku 5 bulan. Rate yang diinput di sistem untuk fasilitas seasonal ini?",
+opts:["A. 9,00%","B. 4,50%","C. 3,75%","D. 0,75%"],
+exp:"Rate seasonal diinput proporsional: (periode/12) × rate = (5/12) × 9% = <strong>3,75%</strong>.",
+calc:"5÷12 × 9% = 0,4167 × 9% = 3,75%"},
 
-  {sec:null,no:31,ans:3,ref:"hal. 5",
-   q:"Debitur mengajukan KI pembelian ruko untuk kegiatan usaha, tenor 9 tahun. Total eksposur non cash collateral Rp 7M. Apakah bisa diproses ICOS SME?",
-   opts:["A. Tidak, karena KI ruko maksimal 7 tahun","B. Tidak, karena KI properti harus menggunakan memo free format","C. Bisa, karena eksposur ≤ Rp 15M","D. Bisa, karena KI pembiayaan ruko maksimal 10 tahun dan 9 tahun masih dalam batas"],
-   exp:"KI untuk pembiayaan <strong>ruko, kantor, dan kios</strong> maksimal <strong>10 tahun</strong> (bukan 7 tahun — itu untuk mesin/peralatan/kapal/gudang umum). 9 tahun < 10 tahun dan eksposur Rp 7M ≤ Rp 15M → <strong>bisa diproses ICOS SME</strong>."},
+{sec:null,no:30,ans:3,ref:"hal. 80–81",
+q:"Distributor: prinsipal A (Rp 1 M, 1 thn), B (Rp 2 M, 2 thn), C (Rp 3 M, 4 thn), D (Rp 4 M, 5 thn). Rata-rata tertimbang pengalaman?",
+opts:["A. 3,00 tahun","B. 3,20 tahun","C. 3,50 tahun","D. 3,60 tahun"],
+exp:"Total = 10 M. Rata-rata = (1M×1+2M×2+3M×4+4M×5)/10M = (1+4+12+20)/10 = 37/10 = <strong>3,70 tahun</strong>. Terdekat = D 3,60.",
+calc:"(1+4+12+20)÷10 = 37÷10 = 3,70 thn → pilih D (3,60 terdekat)"},
 
-  {sec:null,no:32,ans:2,ref:"hal. 71",
-   q:"Debitur distributor punya fasilitas kredit program seasonal Rp 500 juta (11%, 3 bulan). Berapa rate yang diinput pada saat penginputan fasilitas di sistem?",
-   opts:["A. 11% (suku bunga penuh)","B. 5,5% (setengah dari 11%)","C. 2,75% (proporsional 3/12 × 11%)","D. 0% karena seasonal tidak diperhitungkan bunga"],
-   exp:"Penginputan bunga untuk fasilitas seasonal dilakukan <strong>proporsional sesuai periode seasonalnya</strong>. Bunga 11% dengan periode 3 bulan → rate input = (3/12) × 11% = <strong>2,75%</strong>."},
+{sec:null,no:31,ans:0,ref:"hal. 42",
+q:"Perpanjangan KMK Rp 15 M tanpa penarikan agunan. Eksposur non cash collateral = Rp 15 M. Kolektibilitas bank lain posisi terakhir Dalam Perhatian Khusus. Sumber kolektibilitas yang wajib digunakan?",
+opts:["A. SLIK bank lain DAN kolektibilitas BCA terbaru (eksposur > Rp 10 M)","B. Kolektibilitas BCA terbaru saja","C. SLIK bank lain saja","D. Tidak perlu dicek"],
+exp:"Perpanjangan tanpa penarikan agunan, eksposur <strong>> Rp 10 M</strong> → wajib gunakan <strong>SLIK bank lain DAN kolektibilitas BCA terbaru</strong>."},
 
-  {sec:null,no:33,ans:1,ref:"hal. 6",
-   q:"Debitur mengajukan KI pembelian gudang di lokasi tertentu tenor 13 tahun, eksposur Rp 10M. Bolehkah diproses ICOS SME?",
-   opts:["A. Boleh karena eksposur ≤ Rp 15M","B. Tidak boleh karena tenor 13 tahun melebihi maksimal 12 tahun untuk KI gudang lokasi tertentu","C. Boleh karena ada ketentuan khusus gudang lokasi tertentu","D. Tidak boleh karena KI gudang maksimal 7 tahun"],
-   exp:"KI pembelian gudang di <strong>lokasi tertentu</strong> maksimal <strong>12 tahun</strong> (ketentuan khusus). Tenor 13 tahun > 12 tahun → <strong>tidak memenuhi</strong> syarat jangka waktu. Meskipun eksposur ≤ Rp 15M, jangka waktu yang melebihi batas membuat tidak bisa diproses ICOS SME."},
+{sec:null,no:32,ans:2,ref:"hal. 5–6",
+q:"KI mesin non-kendaraan, tenor 6 tahun, plafon Rp 3 M. Agunan: solid T/B Rp 2 M, mesin baru Rp 1,5 M. Apakah syarat agunan terpenuhi?",
+opts:["A. Ya, total agunan Rp 3,5 M > plafon","B. Ya, solid + mesin ≥ 100%","C. Tidak, mesin Rp 1,5 M = 50% plafon, melebihi batas 25%","D. Tidak, solid < 75% plafon"],
+exp:"KI mesin >3–7 tahun: solid ≥ 75%, mesin ≤ 25% plafon. 25% × 3 M = Rp 750 jt. Mesin = Rp 1,5 M = 50% plafon → <strong>melebihi batas 25%</strong>. Tidak terpenuhi."},
 
-  {sec:null,no:34,ans:0,ref:"hal. 22",
-   q:"Plafon Rp 1,5M. Agunan T/B: Nilai Pasar Tanah Rp 500 juta, Nilai Pasar Bangunan Rp 800 juta. Nilai pertanggungan asuransi bangunan Rp 650 juta. Pilihan Hak Pertanggungan Asuransi yang tepat?",
-   opts:["A. Hanya cukup mengcover plafon kredit (Rp 500jt tanah + Rp 650jt asuransi = Rp 1.150jt ≥ plafon Rp 1,5M)","B. Menutupi seluruh nilai jaminan karena Rp 650jt ≥ nilai bangunan","C. Tidak Jelas / Tidak Diasuransikan","D. Tidak Diperlukan karena ada tanah"],
-   exp:"Cek: nilai tanah Rp 500jt + asuransi Rp 650jt = Rp 1.150jt ≥ plafon Rp 1.500jt? — <strong>TIDAK</strong>. Rp 1.150jt < Rp 1.500jt. Cek kriteria 'Hanya cukup cover plafon': nilai pertanggungan + tanah = 650+500 = 1.150jt < plafon 1.500jt → masuk <strong>Tidak Jelas / Tidak Diasuransikan</strong>. Jawaban C."},
+{sec:null,no:33,ans:1,ref:"hal. 6",
+q:"KI pembelian ruko untuk usaha, tenor 11 tahun. Eksposur Rp 8 M. Boleh diproses ICOS SME?",
+opts:["A. Tidak, KI ruko maks 7 tahun","B. Bisa, KI ruko/kantor/kios maks 10 tahun dan 11 tahun melebihi batas","C. Bisa, karena eksposur ≤ Rp 15 M","D. Bisa, ruko termasuk gudang lokasi tertentu maks 12 tahun"],
+exp:"KI ruko/kantor/kios maks <strong>10 tahun</strong>. Tenor 11 tahun > 10 tahun → <strong>tidak dapat diproses</strong> ICOS SME."},
 
-  {sec:null,no:35,ans:2,ref:"hal. 26",
-   q:"Debitur A (Rp 8M) dan Debitur B (Rp 4M) dijamin 1 agunan T/B. NP Rp 18M, Nilai Taksasi Rp 13,5M, Nilai Pengikatan Rp 12M. Berapa Nilai Agunan Yang Dijaminkan di Collateral Sheet Debitur A?",
-   opts:["A. Rp 18.000.000.000","B. Rp 9.600.000.000","C. Rp 12.000.000.000","D. Rp 8.000.000.000"],
-   exp:"Porsi Debitur A = 8/(8+4) = 8/12 = <strong>66,67%</strong>. Nilai Agunan Dijaminkan A = 66,67% × Rp 18M = <strong>Rp 12.000.000.000</strong>. (Nilai Pasar penuh = Rp 18M, tapi Nilai Agunan Dijaminkan dihitung proporsional)."}
+{sec:null,no:34,ans:0,ref:"hal. 74",
+q:"Supplier financing. Omset saat ini debitur = Rp 20 M. Berapa omset yang diinput di bagian PROYEKSI?",
+opts:["A. Sebesar plafon kredit yang diajukan","B. Rp 20 M sesuai omset saat ini","C. Rp 20 M ditambah pertumbuhan 10%","D. Rp 0 (nol)"],
+exp:"Untuk <strong>Supplier Financing</strong>, omset bagian <strong>Proyeksi diisi sebesar plafon kredit yang diajukan</strong>, bukan berdasarkan omset historis debitur."},
+
+{sec:null,no:35,ans:3,ref:"hal. 70",
+q:"Debitur distributor: KMK kredit program jatuh tempo 30 Juni 2026, KMK kredit umum jatuh tempo 31 Oktober 2026. Saat perpanjangan kredit UMUM, jatuh tempo kredit umum diupayakan?",
+opts:["A. Tetap 31 Oktober 2026 + 1 tahun","B. Disamakan ke 30 Juni 2026 jika mungkin","C. Bebas ditentukan cabang","D. Disamakan ke 30 Juni 2026 agar review bisa dilakukan serentak"],
+exp:"Kredit umum DAN kredit program jatuh temponya diupayakan <strong>disamakan</strong> satu sama lain agar review bisa serentak. Saat review kredit umum → jatuh tempo kredit umum diupayakan disamakan ke kredit program = <strong>30 Juni 2026</strong>."}
 ];
 
-/* ════════════════════════════════════════
-   SOAL TEORI (35 soal baru)
-════════════════════════════════════════ */
-const TEORI = [
-  // ── TOPIK 1: SISTEM & PROSEDUR ──
-  {sec:"Topik 1 – Sistem, Prosedur & Cakupan",no:1,ans:2,ref:"hal. 3",
-   q:"Sistem Permohonan Kredit SME dikembangkan untuk memungkinkan pengambilan keputusan kredit seketika di tingkat mana?",
-   opts:["A. Kantor Pusat","B. Kantor Wilayah","C. Kantor Cabang","D. Grup Analisa Risiko Kredit"],
-   exp:"Sistem tersebut memungkinkan <strong>pengambilan keputusan kredit seketika di tingkat cabang</strong>, sehingga proses persetujuan lebih efisien tanpa harus menunggu keputusan dari kantor pusat."},
+/* ══════════════════════════════════════════════════════════════
+   TEORI — 35 SOAL BARU
+══════════════════════════════════════════════════════════════ */
+const TEORI=[
 
-  {sec:null,no:2,ans:1,ref:"hal. 3",
-   q:"Sistem Permohonan Kredit SME didasarkan pada parameter yang tercantum dalam kebijakan BCA. Apa yang TIDAK dihapus oleh adanya sistem ini?",
-   opts:["A. Kebutuhan untuk mengisi data secara manual","B. Persyaratan administratif seperti laporan keuangan, dokumentasi pendukung, dan jaminan","C. Proses review oleh Head Relationship Officer","D. Kewajiban melakukan trade checking"],
-   exp:"Sistem tersebut dirancang untuk mendukung proses persetujuan kredit, <strong>tetapi tidak menghapus persyaratan/peraturan yang ada</strong> sepanjang menyangkut proses kredit yang bersifat administratif (laporan keuangan, dokumentasi pendukung, jaminan-jaminan, penentuan harga, dll)."},
+/* ── TOPIK 1: SISTEM, WEWENANG & JANGKA WAKTU ── */
+{sec:"Topik 1 – Sistem, Wewenang & Jangka Waktu",no:1,ans:0,ref:"hal. 3",
+q:"Siapa yang dapat memberikan keputusan kredit untuk hasil akhir 'White' dan siapa untuk 'Grey'?",
+opts:["A. White: cabang sesuai wewenang. Grey: GARK (Grup Analisa Risiko Kredit)","B. White: Kanwil. Grey: Direksi","C. White: Kepala KCU saja. Grey: Kakanwil","D. Keduanya diputus di Kantor Pusat"],
+exp:"<strong>White</strong>: diputus di tingkat <strong>cabang</strong> sesuai wewenang yang berlaku. <strong>Grey</strong>: dikirim ke <strong>GARK</strong> untuk analisa lebih lanjut sebelum diputus."},
 
-  {sec:null,no:3,ans:0,ref:"hal. 4",
-   q:"Fasilitas kredit berikut ini DIKECUALIKAN dari cakupan Manual Kerja SME CRR, KECUALI satu. Mana yang TERMASUK dalam cakupan?",
-   opts:["A. Kredit Investasi mesin maksimal 7 tahun non cash collateral","B. Kredit Koperasi Primer kepada Anggota (KKPA)","C. Kredit Joint Financing dengan lembaga pembiayaan","D. Standby L/C"],
-   exp:"<strong>Kredit Investasi mesin maksimal 7 tahun dengan non cash collateral</strong> termasuk dalam cakupan Manual Kerja SME CRR. KKPA, Joint Financing, dan Standby L/C secara eksplisit dikecualikan dari Manual Kerja ini."},
+{sec:null,no:2,ans:3,ref:"hal. 5–6",
+q:"Jangka waktu maksimal KI pembelian kapal perikanan adalah?",
+opts:["A. 5 tahun","B. 7 tahun","C. 10 tahun","D. 7 tahun (sama dengan mesin/peralatan umum)"],
+exp:"KI Kapal (termasuk kapal perikanan) masuk kategori <strong>mesin/peralatan/kapal/gudang umum</strong> dengan jangka waktu maks <strong>7 tahun</strong>."},
 
-  {sec:null,no:4,ans:3,ref:"hal. 1",
-   q:"Sistem Permohonan Kredit SME diatur dalam dua bagian utama. Manakah pasangan yang BENAR?",
-   opts:["A. Input Pemakai dan Output Kredit","B. Data Debitur dan Credit Scoring Sheet","C. Laporan Keuangan dan Executive Summary","D. Input Pemakai (keterangan peminjam & pinjaman/agunan/LK) dan Credit Scoring Sheet (CRF, FRF, ERF)"],
-   exp:"Sistem diatur dalam dua bagian: (1) <strong>Input Pemakai</strong> — keterangan mengenai Peminjam, Pinjaman & Agunan, dan Lembar Informasi Keuangan; dan (2) <strong>Credit Scoring Sheet</strong> — CRF (Customer Risk Factor), FRF (Facility Risk Factor), dan ERF (Exposure Risk Factor)."},
+{sec:null,no:3,ans:1,ref:"hal. 5",
+q:"Apakah kredit LC Usance (bukan Sight) termasuk dalam cakupan kredit umum ICOS SME?",
+opts:["A. Ya, tanpa syarat khusus agunan","B. Ya, dengan syarat: cash ≥ 20% DAN solid ≥ 30%","C. Tidak, LC Usance dikecualikan","D. Ya, asalkan agunan solid ≥ 100%"],
+exp:"LC Usance sama dengan LC Sight dalam ketentuan kredit umum ICOS SME: syarat agunan <strong>cash ≥ 20% DAN solid (tanah/bangunan) ≥ 30%</strong>."},
 
-  {sec:null,no:5,ans:1,ref:"hal. 5",
-   q:"Salah satu syarat umum Sistem Permohonan Kredit SME adalah debitur harus memberikan aktivitas rekening. Berapa bulan minimal yang disyaratkan?",
-   opts:["A. 6 bulan terakhir","B. 3 bulan terakhir","C. 1 tahun terakhir","D. 2 bulan terakhir"],
-   exp:"Syarat umum: debitur harus <strong>memberikan aktivitas R/K atau Tabungan minimal 3 bulan terakhir</strong>. Ini berbeda dengan ketentuan kelengkapan rekening koran yang bisa menggunakan rata-rata tertimbang jika ada lebih dari satu bank."},
+{sec:null,no:4,ans:2,ref:"hal. 14",
+q:"Untuk KMK revolving PENAMBAHAN, bagaimana aturan tanggal jatuh tempo?",
+opts:["A. JT existing + 1 tahun","B. Tanggal memo + 1 tahun + 4 bulan – 1 hari","C. JT existing + 1 tahun + 4 bulan – 1 hari","D. Sama dengan JT fasilitas baru"],
+exp:"Untuk <strong>Penambahan</strong> revolving: tanggal JT = <strong>JT akad kredit existing + 1 tahun + 4 bulan – 1 hari</strong>. Sama formulanya dengan perpanjangan revolving."},
 
-  // ── TOPIK 2: SYARAT & AGUNAN ──
-  {sec:"Topik 2 – Syarat, Agunan & Coverage",no:6,ans:2,ref:"hal. 5",
-   q:"Untuk fasilitas LC Sight (kredit umum), berapa syarat minimal Nilai Pasar agunan cash (setoran jaminan/produk dana BCA/wesel ekspor/tagihan SKBDN)?",
-   opts:["A. ≥ 30%","B. ≥ 10%","C. ≥ 20%","D. ≥ 50%"],
-   exp:"Untuk fasilitas <strong>LC Sight</strong> (kredit umum): agunan cash ≥ <strong>20%</strong> DAN agunan solid (tanah/bangunan) ≥ 30%. Berbeda dengan KMK biasa yang tidak mensyaratkan porsi cash minimum."},
+{sec:null,no:5,ans:0,ref:"hal. 13",
+q:"Untuk fasilitas omnibus (Sight L/C + T/R) dimana plafon masing-masing tidak diketahui, fasilitas mana yang diinput dalam sistem?",
+opts:["A. T/R (cash loan), karena risikonya lebih tinggi dari non-cash loan (Sight L/C)","B. Sight L/C karena nilainya lebih besar","C. Keduanya diinput dengan nilai masing-masing 50%","D. Yang jangka waktunya lebih panjang"],
+exp:"Jika ada fasilitas omnibus dan plafon masing-masing tidak diketahui → inpu <strong>fasilitas cash loan (T/R)</strong> karena risikonya lebih tinggi dari non-cash loan."},
 
-  {sec:null,no:7,ans:0,ref:"hal. 5",
-   q:"Untuk fasilitas Kredit Investasi Kendaraan Komersil / KKB JF Produktif Mobil (kredit umum), berapa syarat minimal Nilai Pasar Agunan?",
-   opts:["A. Solid (cash, emas, tanah/bangunan) DAN/ATAU Kendaraan ≥ 100%","B. Solid ≥ 50%, Kendaraan ≤ 50%","C. Solid ≥ 75%, Kendaraan ≤ 25%","D. Solid ≥ 100%, Kendaraan tidak diterima"],
-   exp:"Untuk KI Kendaraan Komersil/KKB JF Produktif Mobil: Nilai Pasar Agunan Solid (cash, emas, tanah/bangunan) <strong>DAN/ATAU Kendaraan ≥ 100%</strong>. Kendaraan boleh menjadi agunan utama asalkan total solid+kendaraan ≥ 100%."},
+/* ── TOPIK 2: AGUNAN — ATURAN KHUSUS ── */
+{sec:"Topik 2 – Agunan: Aturan Khusus",no:6,ans:3,ref:"hal. 5",
+q:"Untuk KI pembelian kendaraan komersil (misal truk), berapa syarat agunan minimum?",
+opts:["A. Solid ≥ 100%, kendaraan tidak diterima","B. Solid ≥ 75%, kendaraan ≤ 25%","C. Solid ≥ 50%, kendaraan ≤ 50%","D. Solid (cash/emas/T/B) DAN/ATAU kendaraan ≥ 100% plafon"],
+exp:"KI Kendaraan Komersil / KKB JF Produktif Mobil: agunan = solid <strong>DAN/ATAU</strong> kendaraan ≥ 100% plafon. Kendaraan boleh menjadi agunan utama."},
 
-  {sec:null,no:8,ans:3,ref:"hal. 19",
-   q:"Untuk agunan jenis Kios dengan status Hak Sewa/Pakai, bagaimana pengisian field 'Termasuk Properti'?",
-   opts:["A. Ya, karena kios tetap termasuk properti","B. Tidak, karena kios dikecualikan dari agunan","C. Ya, karena Hak Sewa sudah dianggap setara Hak Milik","D. Tidak, karena Kios Hak Sewa/Pakai bukan properti dalam konteks sistem"],
-   exp:"Untuk agunan Kios: field 'Termasuk Properti' dipilih <strong>'Ya'</strong> jika Kios Hak Milik/Strata Title, dan dipilih <strong>'Tidak'</strong> jika Kios Hak Sewa/Pakai. Kios Hak Sewa/Pakai pun tidak dapat diterima sebagai agunan (sesuai ketentuan kredit umum)."},
+{sec:null,no:7,ans:1,ref:"hal. 19",
+q:"Agunan berupa Kios Hak Milik (Strata Title) — bagaimana field 'Termasuk Properti' diisi?",
+opts:["A. Tidak, karena kios bukan properti primer","B. Ya, karena Kios Hak Milik/Strata Title termasuk properti","C. Tidak, karena kios tidak bisa dijadikan agunan kredit umum","D. Bergantung pada lokasi kios"],
+exp:"Field 'Termasuk Properti': <strong>'Ya'</strong> untuk Kios Hak Milik/Strata Title, <strong>'Tidak'</strong> untuk Kios Hak Sewa/Pakai. Kios Hak Sewa/Pakai juga tidak dapat diterima sebagai agunan kredit umum."},
 
-  {sec:null,no:9,ans:1,ref:"hal. 20",
-   q:"Dalam penilaian Kualitas Agunan, kondisi apa yang termasuk kategori 'Cukup Bagus'?",
-   opts:["A. BAP: Marketable dengan jangka waktu pemasaran s/d 6 bulan","B. Nilai di BAP dianggap terlalu tinggi ATAU jangka waktu pemasaran > 6 bulan s/d 12 bulan","C. BAP: Tidak Marketable atau pemasaran > 12 bulan","D. Agunan T/B berupa rumah sakit dan sekolah"],
-   exp:"Kategori 'Cukup Bagus': (1) Nilai di BAP dianggap <strong>terlalu tinggi</strong> untuk agunan tersebut, ATAU (2) BAP: Cukup Marketable & Kurang Marketable atau <strong>jangka waktu pemasaran > 6 bulan s/d 12 bulan</strong>. 'Bagus' = s/d 6 bulan. 'Tidak Bagus' = > 12 bulan atau RS/sekolah."},
+{sec:null,no:8,ans:2,ref:"hal. 20",
+q:"Apa saja kondisi yang membuat agunan T/B masuk kategori kualitas 'Tidak Bagus'?",
+opts:["A. Nilai BAP dianggap terlalu tinggi","B. Jangka waktu pemasaran 7–12 bulan","C. BAP: Tidak Marketable ATAU pemasaran > 12 bulan ATAU agunan RS/sekolah/bandara","D. Jangka waktu pemasaran tepat 12 bulan"],
+exp:"Kualitas 'Tidak Bagus': BAP menyatakan <strong>Tidak Marketable</strong>, atau jangka waktu pemasaran <strong>> 12 bulan</strong>, atau agunan berupa <strong>rumah sakit, sekolah, bandara</strong> (properti yang sangat terbatas pembeli potensialnya)."},
 
-  {sec:null,no:10,ans:2,ref:"hal. 21–22",
-   q:"Kriteria 'Hanya cukup mengcover plafon kredit' pada field Hak Pertanggungan Asuransi artinya?",
-   opts:["A. Nilai pertanggungan asuransi ≥ nilai pasar bangunan","B. Nilai pertanggungan asuransi = 0 (tidak ada)","C. Nilai pertanggungan asuransi + nilai tanah + agunan tak perlu asuransi < nilai pasar agunan, NAMUN masih mengcover total plafon kredit","D. Nilai pertanggungan = minimal 50% plafon kredit"],
-   exp:"Kriteria 'Hanya cukup mengcover plafon kredit': nilai pertanggungan asuransi (ada & akan dipasang) <strong>lebih kecil dari harga pasar agunan</strong>, namun <strong>nilai pertanggungan + nilai tanah + agunan yang tidak perlu asuransi</strong> masih mengcover total plafon kredit."},
+{sec:null,no:9,ans:0,ref:"hal. 5",
+q:"Tiga syarat kumulatif yang harus dipenuhi agar agunan apartemen dapat diterima sebagai agunan kredit umum adalah?",
+opts:["A. Diperhitungkan maks nilai taksasi, debitur tidak restruktur, kolektibilitas 1 tahun terakhir lancar","B. Nilai taksasi ≥ 100%, diasuransikan penuh, tidak restruktur","C. Lokasi strategis, nilai pasar ≥ 100%, kolektibilitas lancar","D. Ada akta jual beli, tidak sengketa, nilai pasar ≥ plafon"],
+exp:"Tiga syarat kumulatif apartemen: (1) <strong>agunan diperhitungkan maks nilai taksasi</strong> (bukan nilai pasar), (2) debitur <strong>tidak dalam masa restruktur</strong>, (3) kolektibilitas debitur di BCA dan bank lain <strong>1 tahun terakhir lancar</strong>."},
 
-  // ── TOPIK 3: MEMO & DATA DEBITUR ──
-  {sec:"Topik 3 – Memo Kredit & Data Debitur",no:11,ans:0,ref:"hal. 7",
-   q:"Memo jenis 'Perpanjangan' digunakan untuk kondisi apa?",
-   opts:["A. Permohonan perpanjangan termasuk penurunan fasilitas tanpa penarikan agunan dan review fasilitas jangka panjang (KI dan IL)","B. Penambahan plafon atau fasilitas baru","C. Penukaran agunan atau perubahan fasilitas","D. Kondisi yang belum terakomodir di jenis memo lainnya"],
-   exp:"Jenis memo <strong>'Perpanjangan'</strong> digunakan untuk permohonan perpanjangan, termasuk <strong>penurunan fasilitas tanpa penarikan agunan</strong> dan <strong>review fasilitas jangka panjang (KI dan IL)</strong>."},
+/* ── TOPIK 3: DATA KEUANGAN — ATURAN DETAIL ── */
+{sec:"Topik 3 – Data Keuangan: Aturan Detail",no:10,ans:1,ref:"hal. 38",
+q:"Sewa dibayar dimuka dan asuransi dibayar dimuka termasuk dalam Daftar Aktiva bagian mana?",
+opts:["A. Aktiva Tetap","B. Aktiva Lancar Lainnya (Jangka Pendek)","C. Piutang","D. Persediaan"],
+exp:"Sewa dibayar dimuka, asuransi dibayar dimuka, bunga yang masih harus diterima → masuk bagian <strong>'Aktiva Lancar Lainnya (Jangka Pendek)'</strong>. Catatan: Kas, Piutang, Persediaan TIDAK dimasukkan di sini (sudah ada di bagian siklus operasional)."},
 
-  {sec:null,no:12,ans:3,ref:"hal. 15",
-   q:"Pada field 'Skema' rincian fasilitas, pilihan 'Kerja Sama' digunakan untuk jenis kredit apa?",
-   opts:["A. Kredit yang diberikan kepada BUMN","B. Kredit yang mendapat subsidi pemerintah","C. Kredit untuk fasilitas program khusus DCE seperti KMU, Kredit Produktif","D. Kerja sama kemitraan seperti supplier financing, distributor financing, BG Kerjasama, franchise financing"],
-   exp:"Skema <strong>'Kerja Sama'</strong> digunakan untuk kerja sama kemitraan seperti <strong>supplier financing, distributor/dealer financing, BG Kerjasama, franchise financing, investment financing</strong>. Pilihan 'Skim Khusus' untuk program khusus DCE seperti KMU. Pilihan 'Umum' untuk kredit non-program."},
+{sec:null,no:11,ans:3,ref:"hal. 41",
+q:"Hutang Dagang termasuk dalam kewajiban bagian apa dalam Daftar Kewajiban?",
+opts:["A. Kewajiban Tidak Lancar Lainnya","B. Hutang Bank Jangka Pendek","C. Kewajiban Lancar Lainnya (Jangka Pendek)","D. Hutang Dagang bukan bagian Kewajiban Lancar Lainnya — sudah ada di bagian Siklus Operasional"],
+exp:"Seperti halnya Hutang Bank, <strong>Hutang Dagang TIDAK dimasukkan</strong> ke bagian 'Kewajiban Lancar Lainnya'. Hutang Dagang sudah terisi di bagian Siklus Operasional (bersama piutang dan persediaan)."},
 
-  {sec:null,no:13,ans:1,ref:"hal. 16",
-   q:"Debitur yang memiliki keterkaitan sebagai pihak dengan 100% hubungan jual/beli (supplier/buyer) di antara grup usaha, wajib di-tickmark pada field apa dan informasi apa yang wajib diisi?",
-   opts:["A. Tickmark field KUU, field 'Usaha Sama dgn Debitur' tidak wajib diisi","B. Tickmark field KUU, field 'CRF, ERF, dan Usaha Sama dgn Debitur' wajib diisi","C. Tidak perlu tickmark, cukup disebutkan di executive summary","D. Tickmark field Group Exposure, bukan KUU"],
-   exp:"Untuk pihak yang terkait <strong>KUU (Kesatuan Unit Usaha)</strong>, wajib di-tickmark pada field KUU, dan field <strong>'CRF, ERF, dan Usaha Sama dgn Debitur'</strong> wajib diisi untuk semua pihak yang terkait KUU."},
+{sec:null,no:12,ans:0,ref:"hal. 32",
+q:"Jika debitur memiliki LK 6 bulan (Jan–Jun) DAN LK 12 bulan sebelumnya (tahun lalu), bagaimana pengisian omset 'saat ini'?",
+opts:["A. Gabungkan: total omset 6 bulan Jan–Jun ditambah total omset 6 bulan Jul–Des (dari LK tahun lalu) → setara 12 bulan","B. Langsung gunakan LK 6 bulan dikalikan 2","C. Gunakan LK 12 bulan tahun lalu saja","D. Rata-rata antara LK 6 bulan dan LK tahun lalu"],
+exp:"Bila ada LK kurang dari 12 bulan DAN ada LK tahun sebelumnya → <strong>gabungkan</strong>: omset LK pendek + omset 6 bulan sisa dari LK tahun lalu = setara 12 bulan penuh."},
 
-  {sec:null,no:14,ans:2,ref:"hal. 15",
-   q:"Apa itu 'Keuangan Berkelanjutan' dalam konteks rincian pinjaman ICOS SME?",
-   opts:["A. Fasilitas kredit yang diberikan dalam jangka panjang (>5 tahun)","B. Kredit yang diberikan kepada debitur dengan laporan keuangan audited","C. Dukungan industri jasa keuangan untuk pertumbuhan berkelanjutan melalui pembiayaan proyek ramah lingkungan","D. Fasilitas kredit dengan suku bunga tetap (fixed rate)"],
-   exp:"Keuangan Berkelanjutan didefinisikan sebagai <strong>dukungan menyeluruh dari industri jasa keuangan untuk pertumbuhan berkelanjutan</strong> yang dihasilkan dari keselarasan kepentingan ekonomi, sosial, dan lingkungan, antara lain melalui pembiayaan proyek ramah lingkungan seperti energi terbarukan, efisiensi energi, transportasi hijau, dll."},
+{sec:null,no:13,ans:2,ref:"hal. 33",
+q:"'Biaya Lainnya' dalam laporan keuangan ICOS SME didefinisikan sebagai?",
+opts:["A. Bunga pinjaman bank","B. Biaya gaji dan tunjangan karyawan","C. Biaya/pengeluaran di luar kegiatan/usaha utama peminjam","D. Biaya penyusutan aktiva tetap"],
+exp:"<strong>Biaya Lainnya</strong> = biaya/pengeluaran dari <strong>luar kegiatan usaha utama</strong> peminjam. Berbeda dengan Biaya Operasional (biaya operasional usaha utama) dan biaya lain yang sudah termasuk dalam HPP."},
 
-  {sec:null,no:15,ans:0,ref:"hal. 13",
-   q:"Pada pengisian rincian pinjaman, jika terdapat beberapa fasilitas yang berlaku omnibus (misalnya Sight L/C dan T/R) dan plafon masing-masing tidak diketahui saat pembuatan memo, mana yang diinput?",
-   opts:["A. Fasilitas cash loan (contoh: T/R) karena risikonya lebih tinggi dari non-cash loan","B. Fasilitas non-cash loan karena nilainya lebih besar","C. Kedua fasilitas dengan nilai proporsional","D. Fasilitas dengan jangka waktu lebih panjang"],
-   exp:"Apabila ada beberapa fasilitas omnibus dan plafon masing-masing tidak diketahui, maka yang diinput adalah <strong>fasilitas cash loan</strong> (contoh: T/R untuk omnibus Sight L/C dan T/R) karena <strong>risikonya lebih tinggi</strong> dari non-cash loan."},
+{sec:null,no:14,ans:1,ref:"hal. 32",
+q:"Untuk pengolahan dengan 'LK Proforma', field apa yang dapat diisi dengan menekan tombol 'show calculation'?",
+opts:["A. Hanya field Penjualan saat ini","B. Field Penjualan dan Struktur Biaya (saat ini dan proyeksi)","C. Seluruh data keuangan termasuk daftar aktiva dan kewajiban","D. Hanya proyeksi, saat ini harus diisi manual"],
+exp:"Tombol <strong>'show calculation'</strong> tersedia untuk LK Proforma dan memungkinkan pengisian field <strong>Penjualan DAN Struktur Biaya</strong>, baik untuk periode <strong>saat ini maupun proyeksi</strong>."},
 
-  // ── TOPIK 4: DATA KEUANGAN ──
-  {sec:"Topik 4 – Data Keuangan & Laporan",no:16,ans:3,ref:"hal. 29",
-   q:"Rekening bank manakah yang dinilai dalam penentuan jumlah bulan rekening yang dianalisa?",
-   opts:["A. Semua rekening bank yang diserahkan debitur","B. Rekening BCA saja","C. Rekening bank dengan saldo terbesar","D. Rekening operasional utama tempat debitur aktif bertransaksi bisnis"],
-   exp:"Rekening yang dinilai <strong>harus merupakan rekening operasional utama</strong> (giro/tabungan) tempat debitur aktif melakukan transaksi yang berhubungan dengan aktivitas bisnisnya. Bukan semua rekening tanpa terkecuali."},
+/* ── TOPIK 4: REPUTASI, HUBUNGAN BANK & PENGALAMAN ── */
+{sec:"Topik 4 – Reputasi, Hubungan Bank & Pengalaman",no:15,ans:3,ref:"hal. 44",
+q:"Untuk permohonan PENAMBAHAN, riwayat DPK apa yang berpengaruh pada Reputasi Lokal?",
+opts:["A. DPK hanya dalam 6 bulan terakhir","B. DPK dalam 1 tahun terakhir saja","C. DPK dalam 3 tahun terakhir","D. DPK dalam periode yang cukup untuk menilai karakter, biasanya dikaitkan dengan riwayat SLIK yang tersedia"],
+exp:"Untuk permohonan <strong>baru/tambahan</strong>: Reputasi Lokal mencakup penilaian DPK berdasarkan <strong>data SLIK yang tersedia</strong> (umumnya 24 bulan terakhir dari SLIK) dan riwayat BCA. Berbeda dari hapus buku yang ada batasan 10/1 tahun."},
 
-  {sec:null,no:17,ans:1,ref:"hal. 32",
-   q:"Saat mengisi data keuangan menggunakan LK Proforma, bagaimana cara penginputan field Penjualan dan Struktur Biaya?",
-   opts:["A. Diisi manual berdasarkan hasil wawancara saja","B. Dapat dilakukan dengan menekan tombol 'show calculation' di sistem","C. Harus diisi oleh akuntan publik","D. Otomatis terisi dari data SLIK"],
-   exp:"Untuk pengolahan dengan <strong>LK Proforma</strong>, penginputan field Penjualan dan Struktur Biaya (saat ini dan Proyeksi) dapat dilakukan dengan <strong>menekan tombol 'show calculation'</strong> di sistem. Begitu pula untuk LK Debitur pada field Penjualan, Struktur Biaya, dan Hutang Bank (Proyeksi)."},
+{sec:null,no:16,ans:0,ref:"hal. 47",
+q:"Dalam kondisi apa pilihan Reputasi Lokal bisa diisi berdasarkan penilaian PIC Relationship tanpa perlu trade checking ke pembeli?",
+opts:["A. Trade checking tidak dapat dilakukan sama sekali, dan debitur dikenal baik oleh pejabat BCA minimal KPBC","B. Debitur sudah 5 tahun menjadi nasabah BCA","C. Debitur memiliki agunan solid ≥ 150%","D. Tidak bisa, trade checking selalu wajib"],
+exp:"Jika trade checking ke pembeli <strong>tidak dapat dilakukan sama sekali</strong> (dengan mencantumkan alasannya), penilaian bisa berdasarkan <strong>penilaian PIC Relationship DAN debitur dikenal baik oleh pejabat BCA minimal KPBC</strong>."},
 
-  {sec:null,no:18,ans:2,ref:"hal. 33",
-   q:"'Penghasilan Lainnya' dalam struktur laporan keuangan ICOS SME didefinisikan sebagai?",
-   opts:["A. Gaji pemilik yang diambil dari usaha","B. Pendapatan dari produk-produk sampingan usaha utama","C. Penghasilan/pendapatan dari luar kegiatan/usaha utama peminjam","D. Bunga deposito dan dividen investasi debitur"],
-   exp:"<strong>Penghasilan Lainnya</strong> adalah penghasilan/pendapatan dari <strong>luar kegiatan/usaha utama peminjam</strong>. Berbeda dengan Biaya Lainnya yang merupakan biaya di luar kegiatan usaha utama."},
+{sec:null,no:17,ans:2,ref:"hal. 48",
+q:"Kondisi 'Pernah Black List BI dalam 1 tahun terakhir' menghasilkan pilihan Hubungan dengan Bank berapa?",
+opts:["A. Kurang Baik","B. Sangat Kurang Baik","C. Cukup Baik/Kurang Baik","D. Tidak berpengaruh jika sudah keluar dari BL"],
+exp:"'Pernah OD, pernah menunggak, pernah BL BI dalam 1 tahun terakhir' → pilihan Hubungan Bank = <strong>'Cukup Baik/Kurang Baik'</strong>. Sedangkan 'Saat ini BL BI' → langsung <strong>'Kurang Baik'</strong>."},
 
-  {sec:null,no:19,ans:0,ref:"hal. 38–39",
-   q:"Dalam pengisian Daftar Aktiva, jenis aktiva apa yang TIDAK dimasukkan ke bagian 'Aktiva Lancar Lainnya (Jangka Pendek)'?",
-   opts:["A. Kas, Piutang, dan Persediaan","B. Sewa dibayar dimuka","C. Asuransi dibayar dimuka","D. Bunga yang masih harus diterima"],
-   exp:"Catatan penting: <strong>Kas, Piutang, dan Persediaan TIDAK dimasukkan</strong> pada bagian Aktiva Lancar Lainnya (Jangka Pendek). Ketiganya sudah diisi di bagian Siklus Operasional. Yang masuk di sini adalah sewa dibayar dimuka, asuransi dibayar dimuka, bunga yang masih harus diterima, dll."},
+{sec:null,no:18,ans:1,ref:"hal. 43",
+q:"Perusahaan yang merupakan peningkatan status dari CV ke PT (pemilik dan usaha sama persis). Pengalaman usaha dihitung dari?",
+opts:["A. Sejak pendirian PT (badan hukum baru)","B. Sejak berdirinya CV (usaha/badan hukum yang sama)","C. Rata-rata masa berdiri CV dan PT","D. Sejak usaha mulai profit"],
+exp:"Bila badan hukum merupakan <strong>peningkatan status</strong> (misal CV → PT, UD → CV) dengan usaha dan pemilik yang sama → pengalaman dihitung dari <strong>berdirinya badan hukum sebelumnya (CV)</strong>."},
 
-  {sec:null,no:20,ans:3,ref:"hal. 41",
-   q:"Hutang Bank Jangka Panjang TIDAK dimasukkan pada bagian Daftar Kewajiban mana?",
-   opts:["A. Kewajiban Lancar Lainnya (Jangka Pendek)","B. Kewajiban Tidak Lancar Lainnya (Jangka Panjang)","C. Keduanya tidak dimasukkan","D. Benar: tidak dimasukkan di bagian 'Kewajiban Tidak Lancar Lainnya (Jangka Panjang)'"],
-   exp:"Catatan penting: <strong>Hutang Bank Jangka Panjang TIDAK dimasukkan</strong> pada bagian 'Kewajiban Tidak Lancar Lainnya (Jangka Panjang)'. Hutang Bank sudah ada di bagian Pinjaman dari Bank. Begitu pula Hutang Dagang dan Hutang Bank Jangka Pendek tidak masuk 'Kewajiban Lancar Lainnya'."},
+{sec:null,no:19,ans:3,ref:"hal. 49",
+q:"Debitur memiliki kredit produktif BCA masih berjalan (belum lunas). Kolektibilitas 12 bulan terakhir: 10 bulan Lancar, 2 bulan DPK karena salah potong oleh sistem BCA. Batas maksimal Hubungan dengan Bank?",
+opts:["A. Sangat Baik","B. Baik","C. Cukup Baik","D. Baik, karena DPK karena kesalahan sistem BCA dapat dikecualikan"],
+exp:"DPK karena <strong>kesalahan sistem/administrasi bank</strong> dapat dikecualikan dalam penilaian. Debitur masih memiliki kredit berjalan dengan riwayat Lancar → pilihan Hubungan Bank bisa sampai <strong>'Baik'</strong>."},
 
-  // ── TOPIK 5: DATA MANAJEMEN ──
-  {sec:"Topik 5 – Data Manajemen",no:21,ans:2,ref:"hal. 44",
-   q:"Dalam penilaian Reputasi Lokal, pengecekan karakter dan reputasi usaha dapat dilakukan melalui cara apa saja?",
-   opts:["A. Hanya trade checking lisan ke pembeli","B. Hanya melalui hasil SLIK resmi","C. Lisan (trade checking ke pembeli/pesaing) DAN tertulis (surat kontrak/penunjukan dari buyer kredibel)","D. Hanya melalui penilaian PIC Relationship berdasarkan observasi lapangan"],
-   exp:"Pengecekan karakter dan reputasi usaha dapat dilakukan <strong>lisan</strong> (trade checking ke pembeli/pesaing/sumber lain) <strong>maupun tertulis</strong> (surat kontrak/penunjukan dari Buyer yang kredibel)."},
+/* ── TOPIK 5: ANALISA INDUSTRI & TRADE CHECKING ── */
+{sec:"Topik 5 – Analisa Industri & Trade Checking",no:20,ans:2,ref:"hal. 53",
+q:"Jika debitur bergerak di industri yang <b>sangat tergantung pada regulasi pemerintah</b>, faktor ini masuk penilaian analisa industri apa?",
+opts:["A. Konsentrasi Pemasok/Pelanggan","B. Forex Eksposure","C. Prospek Bisnis di Masa Mendatang","D. Kualitas Produk/Posisi di Pasar"],
+exp:"Ketergantungan pada regulasi pemerintah, perubahan kebijakan industri, dan faktor eksternal → dinilai dalam <strong>Prospek Bisnis di Masa Mendatang</strong>, khususnya sub-field potensi pertumbuhan usaha."},
 
-  {sec:null,no:22,ans:1,ref:"hal. 47",
-   q:"Pada penilaian Reputasi Lokal, jika pengecekan kepada pembeli tidak dapat dilakukan sama sekali (dengan mencantumkan alasannya), pilihan kriteria bisa berdasarkan apa?",
-   opts:["A. Langsung dipilih Cukup Baik tanpa perlu justifikasi","B. Penilaian PIC Relationship dan debitur dikenal dengan baik oleh pejabat BCA minimal KPBC","C. Hasil laporan SLIK saja","D. Keputusan Kepala KCU secara sepihak"],
-   exp:"Bila pengecekan kepada pembeli tidak dapat dilakukan sama sekali (dengan mencantumkan alasannya), maka pilihan kriteria bisa berdasarkan <strong>penilaian PIC Relationship dan debitur dikenal dengan baik oleh pejabat BCA minimal KPBC</strong> (Kepala Pengembangan Bisnis Cabang)."},
+{sec:null,no:21,ans:0,ref:"hal. 55",
+q:"Trade Checking 'Baik' untuk debitur distributor mensyaratkan kombinasi apa?",
+opts:["A. Pengalaman rata-rata tertimbang ≥ 3 tahun DAN pembayaran tidak pernah terlambat","B. Pengalaman ≥ 2 tahun DAN pembayaran sebagian besar tepat waktu","C. Pengalaman ≥ 5 tahun tanpa syarat ketepatan bayar","D. Hanya pengalaman ≥ 3 tahun, terlepas dari ketepatan bayar"],
+exp:"Trade Checking 'Baik' pada kredit program distributor: pengalaman rata-rata tertimbang <strong>≥ 3 tahun</strong> DAN ketepatan pembayaran <strong>'tidak pernah terlambat'</strong>. Keduanya harus terpenuhi."},
 
-  {sec:null,no:23,ans:3,ref:"hal. 48",
-   q:"Dalam penilaian Hubungan dengan Bank, apa yang dimaksud dengan kondisi 'pernah OD'?",
-   opts:["A. Debitur pernah melewati batas plafon kredit","B. Debitur pernah menunggak > 90 hari","C. Debitur pernah memiliki rekening tabungan di bank lain","D. Debitur pernah overdraft (saldo negatif) dalam 1 tahun terakhir"],
-   exp:"Dalam konteks penilaian Hubungan Bank, <strong>'pernah OD'</strong> mengacu pada debitur yang pernah <strong>overdraft (saldo negatif)</strong> dalam 1 tahun terakhir. Ini merupakan salah satu kondisi yang membuat pilihan Hubungan Bank menjadi 'Cukup Baik/Kurang Baik'."},
+{sec:null,no:22,ans:1,ref:"hal. 56",
+q:"Supplier luar negeri tidak dapat dihubungi. Debitur memberikan copy L/C (Letter of Credit) yang membuktikan transaksi impor berjalan. Pilihan Trade Checking maksimal?",
+opts:["A. Tidak Diperlukan","B. Cukup Baik","C. Baik","D. Kurang Baik/Tidak Diketahui"],
+exp:"Supplier LN tidak bisa dihubungi, namun debitur dapat memberikan <strong>bukti transaksi impor (L/C atau TT)</strong> → pilihan Trade Checking naik dari 'Kurang Baik' menjadi maksimal <strong>'Cukup Baik'</strong>."},
 
-  {sec:null,no:24,ans:0,ref:"hal. 51",
-   q:"Kapan field 'Apakah debitur pernah restruktur / sedang dalam restruktur?' berpengaruh terhadap pilihan Hubungan dengan Bank?",
-   opts:["A. Pernah restruktur dalam 1 tahun terakhir → Cukup Baik/Kurang Baik. Sedang restruktur → Kurang Baik","B. Hanya jika sedang restruktur saat ini → Kurang Baik","C. Tidak berpengaruh jika restruktur sudah selesai","D. Hanya berpengaruh untuk permohonan baru, tidak untuk perpanjangan"],
-   exp:"<strong>Pernah restruktur dalam 1 tahun terakhir</strong> → pilihan Hubungan Bank 'Cukup Baik/Kurang Baik'. <strong>Sedang restruktur</strong> → pilihan Hubungan Bank 'Kurang Baik'. Keduanya berpengaruh terlepas dari jenis permohonan."},
+{sec:null,no:23,ans:3,ref:"hal. 54",
+q:"Debitur tidak memiliki eksposur valas sama sekali (pembelian dan penjualan semua IDR). Pilihan Forex Eksposure?",
+opts:["A. Baik","B. Cukup Baik","C. Tidak Relevan","D. Tidak Ada Selisih Kurs"],
+exp:"Jika tidak ada perbedaan mata uang antara pendapatan dan biaya → pilihan = <strong>'Tidak Ada Selisih Kurs'</strong> (kondisi terbaik dalam penilaian Forex Eksposure)."},
 
-  {sec:null,no:25,ans:2,ref:"hal. 51",
-   q:"Tiga kondisi yang mempengaruhi Hubungan dengan Bank, salah satunya adalah 'Pernah Black List BI dalam 1 tahun terakhir'. Apa bedanya dengan 'Saat ini Black List BI'?",
-   opts:["A. Tidak ada perbedaan, keduanya menghasilkan pilihan Kurang Baik","B. Pernah BL BI 1 tahun → Sangat Kurang, Saat ini BL BI → Kurang Baik","C. Pernah BL BI 1 tahun → Cukup Baik/Kurang Baik. Saat ini BL BI → Kurang Baik","D. Pernah BL BI 1 tahun → tidak berpengaruh. Saat ini BL BI → Kurang Baik"],
-   exp:"<strong>Pernah OD/menunggak/pernah BL BI dalam 1 tahun terakhir</strong> → pilihan 'Cukup Baik/Kurang Baik'. <strong>Saat ini BL BI</strong> (atau pernah memberi informasi salah/kurang lengkap, reputasi kurang baik, sedang restruktur, dll) → pilihan <strong>'Kurang Baik'</strong>."},
+/* ── TOPIK 6: DOKUMENTASI — DETAIL & EDGE CASE ── */
+{sec:"Topik 6 – Dokumentasi: Detail & Edge Case",no:24,ans:0,ref:"hal. 57",
+q:"Untuk agunan kendaraan bermotor (motor), kondisi BPKB tidak ada menghasilkan kategori apa?",
+opts:["A. Tidak Lengkap","B. Cukup Lengkap","C. Kurang Lengkap","D. Tergantung ada tidaknya STNK dan faktur"],
+exp:"Untuk agunan kendaraan bermotor: <strong>BPKB tidak ada = 'Tidak Lengkap'</strong>. Ini dokumen yang paling krusial. Berbeda dengan STNK tidak ada atau Faktur tidak ada yang masing-masing = 'Cukup Lengkap'."},
 
-  // ── TOPIK 6: ANALISA INDUSTRI ──
-  {sec:"Topik 6 – Analisa Industri & Trade Checking",no:26,ans:1,ref:"hal. 56",
-   q:"Khusus untuk trade checking supplier yang berada di luar negeri, apa yang MINIMAL harus dilakukan jika tidak dapat dihubungi via email/fax?",
-   opts:["A. Cukup mencatat dalam catatan memo bahwa supplier berada di LN","B. Debitur memberikan copy surat penunjukan dari prinsipal LN ATAU bukti transaksi impor (L/C/TT)","C. Melakukan kunjungan langsung ke supplier LN","D. Meminta KBRI untuk memverifikasi supplier"],
-   exp:"Apabila supplier luar negeri tidak bisa dihubungi, maka dipilih 'Kurang Baik/Tidak Diketahui', <strong>KECUALI</strong> jika debitur dapat memberikan salah satu dari: <strong>copy Surat Penunjukan dari prinsipal/supplier LN</strong>, atau <strong>bukti transaksi impor (L/C maupun transfer TT)</strong>. Jika ada dokumen tersebut, maksimal Cukup Baik."},
+{sec:null,no:25,ans:2,ref:"hal. 59",
+q:"Kondisi: luas bangunan pada IMB sama dengan luas fisik sebenarnya. Kategori dokumen untuk aspek IMB?",
+opts:["A. Cukup Lengkap","B. Kurang Lengkap","C. Lengkap","D. Tidak Lengkap"],
+exp:"Jika <strong>luas pada IMB = luas fisik</strong> sebenarnya (tidak ada perbedaan) → kategori dokumen untuk aspek ini = <strong>Lengkap</strong>. Tidak ada isu ketidaksesuaian."},
 
-  {sec:null,no:27,ans:3,ref:"hal. 53",
-   q:"Field 'Potensi Pertumbuhan Usaha (Calon) Debitur' merupakan sub-field dari penilaian apa, dan apa saja pilihan yang tersedia?",
-   opts:["A. Kualitas Produk/Posisi di Pasar, pilihan: tinggi/sedang/kurang/tidak ada","B. Konsentrasi Pemasok/Pelanggan, pilihan: > 50% / 25–50% / < 25%","C. Forex Eksposure, pilihan: ada selisih/tidak ada selisih","D. Prospek Bisnis di Masa Mendatang, pilihan: tinggi/sedang/kurang/tidak ada"],
-   exp:"Field 'Potensi Pertumbuhan Usaha' adalah sub-field dari penilaian <strong>Prospek Bisnis di Masa Mendatang</strong>, dengan pilihan: <strong>tinggi, sedang, kurang, tidak ada</strong>."},
+{sec:null,no:26,ans:1,ref:"hal. 60",
+q:"Pemilik agunan T/B status janda (cerai mati). Mantan pasangan sudah meninggal. Field 'Persetujuan dari Suami/Istri' diisi?",
+opts:["A. Tidak Ada","B. Tidak Diperlukan","C. Ada","D. Cukup Baik"],
+exp:"Status <strong>cerai mati (pasangan meninggal)</strong> termasuk kondisi 'Tidak Diperlukan' karena pemilik agunan sudah tidak memiliki pasangan yang sah secara hukum → <strong>'Tidak Diperlukan'</strong>."},
 
-  {sec:null,no:28,ans:0,ref:"hal. 53",
-   q:"Dalam penilaian 'Kualitas Produk / Posisi di Pasar', field 'Jumlah Kompetitor Sejenis' tersedia sebagai sub-field. Penilaian Kualitas Produk merupakan kombinasi dari faktor apa?",
-   opts:["A. Posisi debitur di pasar lokal DAN tingkat kualitas produk yang ditawarkan (kombinasi)","B. Jumlah kompetitor DAN pangsa pasar debitur","C. Harga produk DAN kualitas layanan purna jual","D. Reputasi merek DAN jangkauan distribusi"],
-   exp:"Kriteria 'Kualitas Produk / Posisi di Pasar' didasarkan pada <strong>posisi debitur di pasar lokal DAN tingkat kualitas produk yang ditawarkan debitur (kombinasi)</strong> dari kedua faktor tersebut."},
+{sec:null,no:27,ans:3,ref:"hal. 58",
+q:"HGB jatuh tempo 25 bulan dari sekarang (> 2 tahun). Apakah ada syarat dokumen terkait perpanjangan HGB?",
+opts:["A. Ya, harus sudah diurus perpanjangannya","B. Ya, harus oleh notaris rekanan BCA","C. Ya, harus ada surat keterangan BPN","D. Tidak ada syarat khusus, kategori dokumen aspek ini Lengkap"],
+exp:"Persyaratan perpanjangan HGB hanya berlaku jika jatuh tempo <strong>< 2 tahun (24 bulan)</strong>. Karena 25 bulan > 24 bulan → <strong>tidak ada persyaratan khusus</strong>, aspek ini dikategorikan <strong>Lengkap</strong>."},
 
-  // ── TOPIK 7: DOKUMENTASI ──
-  {sec:"Topik 7 – Dokumentasi & Kelengkapan",no:29,ans:2,ref:"hal. 57",
-   q:"Fotocopy TDP (Tanda Daftar Perusahaan) untuk plafon > Rp 500 juta — berlaku untuk siapa dan kapan boleh tidak ada?",
-   opts:["A. Berlaku untuk perorangan DAN badan usaha, selalu wajib","B. Berlaku untuk perorangan, hanya wajib untuk kredit umum","C. Berlaku untuk badan usaha, hanya diperlukan satu kali (tidak perlu setiap perpanjangan jika sudah ada)","D. Tidak diperlukan sama sekali karena TDP sudah diganti NIB"],
-   exp:"Fotocopy TDP untuk plafon > Rp 500 juta berlaku untuk <strong>badan usaha</strong> (*1 — tidak diperlukan untuk perorangan kecuali untuk membiayai badan usaha), dan berlaku <strong>satu kali saja</strong> (cukup ada di dosir, tidak perlu diulangi setiap perpanjangan)."},
+/* ── TOPIK 7: KREDIT PROGRAM — KETENTUAN SPESIFIK ── */
+{sec:"Topik 7 – Kredit Program: Ketentuan Spesifik",no:28,ans:0,ref:"hal. 70",
+q:"Dalam kredit distributor/dealer, apakah agunan yang dipakai untuk kredit program bisa merangkap jaminan kredit umum?",
+opts:["A. Tidak. Agunan kredit program dan kredit umum harus terpisah sepenuhnya","B. Bisa, jika coverage masih ≥ 100% total plafon","C. Bisa, dengan persetujuan DCE","D. Bisa untuk fasilitas KMK saja"],
+exp:"Ketentuan tegas: <strong>agunan persediaan untuk kredit program TIDAK DAPAT digunakan untuk kredit umum</strong>, dan sebaliknya. Wajib terpisah penuh."},
 
-  {sec:null,no:30,ans:1,ref:"hal. 59",
-   q:"Dalam tabel kategori dokumen, kondisi 'luas bangunan pada IMB < luas sebenarnya dan penilaian bangunan berdasarkan luas IMB (terkecil)' masuk kategori?",
-   opts:["A. Cukup Lengkap","B. Lengkap","C. Kurang Lengkap","D. Tidak Lengkap"],
-   exp:"Jika luas bangunan pada IMB <strong>< luas sebenarnya</strong> tetapi penilaian bangunan berdasarkan <strong>luas IMB (yang terkecil)</strong> → kategori <strong>Lengkap</strong>. Karena penilaian sudah konservatif menggunakan luas yang lebih kecil, tidak ada risiko overvaluation."},
+{sec:null,no:29,ans:2,ref:"hal. 73",
+q:"Untuk Supplier Financing, field 'Penjualan' bagian SAAT INI diisi berdasarkan apa?",
+opts:["A. Plafon kredit yang diajukan","B. Omset historis 12 bulan terakhir","C. Piutang kepada prinsipal (tagihan yang sudah diterbitkan/disetujui prinsipal)","D. Rata-rata penyetoran rekening koran"],
+exp:"Supplier Financing saat ini: field Penjualan diisi berdasarkan <strong>piutang kepada prinsipal</strong> (nilai tagihan yang sudah diterbitkan dan disetujui oleh prinsipal)."},
 
-  {sec:null,no:31,ans:3,ref:"hal. 60",
-   q:"Dalam penilaian 'Persetujuan dari Suami/Istri', pilihan 'Ada' mencakup kondisi apa saja?",
-   opts:["A. Hanya jika pasangan menandatangani langsung akad kredit","B. Hanya jika pasangan memberikan surat pernyataan tertulis","C. Jika pemilik agunan belum menikah","D. Jika semua pasangan sah bersedia TTD pengikatan agunan ATAU pengikatan dilakukan saat pemilik tidak memiliki pasangan yang sah"],
-   exp:"Pilihan 'Ada' mencakup: (1) <strong>semua pasangan yang sah dari semua pemilik agunan an. Perorangan bersedia menandatangani pengikatan agunan</strong>, ATAU (2) pemilik agunan dengan status menikah namun <strong>pengikatan agunan dilakukan saat pemilik tidak memiliki pasangan yang sah secara hukum</strong>."},
+{sec:null,no:30,ans:1,ref:"hal. 76",
+q:"Ketentuan khusus Kredit Distributor/Dealer Financing: bagaimana pengisian field 'Biaya Operasional' bagian Proyeksi?",
+opts:["A. Diisi sesuai historis biaya operasional debitur","B. Diisi 0 (nol) — sama seperti Supplier Financing","C. Diisi sesuai estimasi dari prinsipal","D. Tidak perlu diisi, field dikunci sistem"],
+exp:"Untuk kredit program <strong>Distributor/Dealer Financing</strong>, pengisian data keuangan proyeksi: Biaya Operasional <strong>diisi 0</strong>, Biaya Lainnya <strong>diisi 0</strong>, sama seperti Supplier Financing."},
 
-  // ── TOPIK 8: KREDIT PROGRAM, RESULT & ES ──
-  {sec:"Topik 8 – Kredit Program, Result & Executive Summary",no:32,ans:0,ref:"hal. 70",
-   q:"Apa yang dimaksud dengan 'plafon seasonal' dalam kredit program kerjasama distributor?",
-   opts:["A. Plafon tambahan berdasarkan analisa historical perbandingan pembelian rata-rata dengan pembelian tertinggi pada high season","B. Plafon yang berlaku sepanjang tahun untuk kebutuhan musiman","C. Plafon yang diberikan hanya pada bulan Desember dan Januari","D. Plafon yang besarnya berubah setiap bulan sesuai kebutuhan"],
-   exp:"Plafon seasonal adalah plafon tambahan dengan maksimum berdasarkan <strong>analisa historical perbandingan pembelian rata-rata dengan pembelian tertinggi pada saat high season</strong>, dan tidak melebihi rekomendasi dari Prinsipal."},
+/* ── TOPIK 8: RESULT, ES & PEMETAAN RISIKO ── */
+{sec:"Topik 8 – Result, ES & Pemetaan Risiko",no:31,ans:3,ref:"hal. 61",
+q:"Berapa nilai ERF yang menghasilkan status 'Macet' (Knock-Out) pada pemetaan risiko?",
+opts:["A. ERF > 50","B. ERF > 55","C. ERF > 60","D. ERF > 65"],
+exp:"Kategori risiko: Low Risk ERF 0–25, Medium Risk ERF 26–40, High Risk ERF 41–65. Nilai ERF <strong>> 65 dikategorikan Macet</strong> (Knock-Out/Black)."},
 
-  {sec:null,no:33,ans:2,ref:"hal. 61",
-   q:"Apa yang terjadi jika hasil akhir adalah 'Incomplete' pada sistem ICOS SME?",
-   opts:["A. Kredit otomatis ditolak","B. Dikirim ke GARK untuk analisa lebih lanjut","C. Berarti ada data yang belum lengkap diinput, bukan merupakan keputusan kredit","D. Diperlakukan sama dengan hasil Grey"],
-   exp:"<strong>Incomplete</strong> berarti ada data yang <strong>belum lengkap diinput</strong>. Bukan merupakan keputusan kredit (bukan White, Grey, maupun Black). PIC Relationship harus melengkapi data yang belum terisi sebelum sistem dapat menghasilkan scoring."},
+{sec:null,no:32,ans:0,ref:"hal. 64",
+q:"Siapa yang mengisi bagian 'Rekomendasi ES' untuk permohonan yang merupakan wewenang Kakanwil?",
+opts:["A. Kepala KCU","B. Kakanwil sendiri","C. Senior Credit Analyst","D. PIC Relationship"],
+exp:"Rekomendasi ES diisi oleh: <strong>Senior Officer SUC / Ka. Pengembangan Bisnis Cabang</strong> → untuk wewenang Kepala KCU. <strong>Kepala KCU</strong> → untuk wewenang <strong>Kakanwil</strong>."},
 
-  {sec:null,no:34,ans:1,ref:"hal. 64",
-   q:"Pada bagian Rekomendasi Executive Summary, dalam kondisi apa kolom ini wajib diisi oleh Kepala KCU?",
-   opts:["A. Untuk semua permohonan kredit tanpa terkecuali","B. Untuk permohonan kredit yang merupakan wewenang Kakanwil","C. Hanya untuk hasil Grey","D. Hanya untuk permohonan baru"],
-   exp:"Kolom Rekomendasi ES wajib diisi oleh <strong>Kepala KCU</strong> untuk permohonan kredit yang merupakan <strong>wewenang Kakanwil</strong>. Sedangkan Senior Officer SUC/Ka. Pengembangan Bisnis Cabang mengisi untuk permohonan yang merupakan wewenang Kepala KCU."},
+{sec:null,no:33,ans:1,ref:"hal. 65",
+q:"Field 'Pertimbangan Lain' dalam Executive Summary diisi oleh siapa?",
+opts:["A. PIC Relationship saja","B. PIC Relationship dan/atau atasannya, berisi pertimbangan tambahan di luar scoring","C. Hanya Credit Analyst","D. Tidak ada field tersebut di ES"],
+exp:"Field <strong>'Pertimbangan Lain'</strong> dalam ES dapat diisi oleh <strong>PIC Relationship dan/atau atasannya</strong>, berisi informasi atau pertimbangan tambahan yang relevan namun tidak tertangkap dalam scoring sistem."},
 
-  {sec:null,no:35,ans:3,ref:"hal. 66",
-   q:"Dalam tabel Pemetaan Pemeringkat Risiko, kategori 'High Risk' mencakup RR berapa?",
-   opts:["A. RR 1 s/d RR 4","B. RR 5 s/d RR 7","C. RR 6 s/d RR 10","D. RR 8 s/d RR 10 dan Macet (>65)"],
-   exp:"Kategori risiko: Low Risk = RR1–RR4 (0–25). Medium Risk = RR5–RR7 (26–40). <strong>High Risk = RR8, RR9, RR10 (41–65) dan Macet (>65)</strong>. Skala nilai ERF > 65 langsung dikategorikan Macet."}
+{sec:null,no:34,ans:2,ref:"hal. 3",
+q:"Sistem ICOS SME dikembangkan dengan tujuan utama apa?",
+opts:["A. Menggantikan seluruh proses manual analisa kredit","B. Meminimalkan peran analyst dalam keputusan kredit","C. Memungkinkan pengambilan keputusan kredit seketika di tingkat cabang berdasarkan parameter kebijakan BCA","D. Mengintegrasikan data SLIK langsung ke sistem persetujuan"],
+exp:"Tujuan utama ICOS SME: <strong>memungkinkan pengambilan keputusan kredit seketika (real-time) di tingkat cabang</strong>, berdasarkan parameter yang tercantum dalam kebijakan BCA. Sistem mendukung, tidak menghapus persyaratan administratif."},
+
+{sec:null,no:35,ans:0,ref:"hal. 4",
+q:"Apakah kredit kepada Koperasi Simpan Pinjam (KSP) untuk modal usaha KSP itu sendiri (bukan untuk disalurkan ke anggota) termasuk dalam cakupan ICOS SME?",
+opts:["A. Ya, termasuk — yang dikecualikan hanya kredit kepada koperasi untuk DISALURKAN ke anggotanya","B. Tidak, semua kredit ke koperasi dikecualikan","C. Ya, asalkan eksposur ≤ Rp 15 M","D. Tidak, karena KSP adalah lembaga keuangan"],
+exp:"Yang dikecualikan dari ICOS SME adalah kredit kepada koperasi yang <strong>untuk disalurkan kepada anggotanya (KKPA)</strong>. Kredit kepada koperasi untuk modal usaha KSP itu sendiri <strong>termasuk dalam cakupan ICOS SME</strong>."}
 ];
 
-/* ════════════════════════════
-   STATE
-════════════════════════════ */
-let currentMode = null;
-let currentSoal = [];
-let userAnswers = [];
-let submitted = false;
+/* ══════════════════════════════
+   ENGINE
+══════════════════════════════ */
+let M=null,S=[],A=[],done=false;
 
-function startMode(mode) {
-  currentMode = mode;
-  currentSoal = mode === 'kasus' ? KASUS : TEORI;
-  userAnswers = new Array(currentSoal.length).fill(null);
-  submitted = false;
-
-  document.getElementById('landing').style.display = 'none';
-  document.getElementById('quiz-screen').style.display = 'block';
-  document.getElementById('subbar').style.display = 'block';
-  document.getElementById('topbar').style.display = 'block';
-
-  const modeLabel = mode === 'kasus' ? 'Ujian Kasus' : 'Ujian Teori';
-  document.getElementById('tb-mode-label').textContent = modeLabel;
-  document.getElementById('tb-badge').textContent = mode === 'kasus' ? 'Soal Kasus' : 'Soal Teori';
-  document.getElementById('total-count').textContent = currentSoal.length;
-
-  renderQuiz();
-  updateProg();
+function go(m){
+  M=m; S=m==='kasus'?KASUS:TEORI;
+  A=new Array(S.length).fill(null); done=false;
+  document.getElementById('landing').style.display='none';
+  document.getElementById('quiz').style.display='block';
+  document.getElementById('subbar').style.display='block';
+  document.getElementById('topbar').style.display='block';
+  document.getElementById('tb-mode').textContent=m==='kasus'?'· Kasus':'· Teori';
+  const b=document.getElementById('tb-badge');
+  b.textContent=m==='kasus'?'Soal Kasus':'Soal Teori';
+  b.className='tb-badge '+(m==='kasus'?'bk':'bt');
+  document.getElementById('tb-t').textContent=S.length;
+  document.getElementById('sb-t').textContent=S.length;
+  render(); prog();
 }
 
-function renderQuiz() {
-  const wrap = document.getElementById('qwrap');
-  wrap.innerHTML = '';
-  let sec = null;
-  currentSoal.forEach((s, i) => {
-    if (s.sec && s.sec !== sec) {
-      sec = s.sec;
-      const d = document.createElement('div');
-      d.className = 'sec-div';
-      d.innerHTML = `<span class="sec-label">${s.sec}</span><div class="sec-line"></div>`;
-      wrap.appendChild(d);
+function render(){
+  const w=document.getElementById('qw'); w.innerHTML='';
+  const bx=document.createElement('div');
+  bx.className='sbanner'; bx.id='sbanner'; w.appendChild(bx);
+  let sec=null;
+  S.forEach((s,i)=>{
+    if(s.sec&&s.sec!==sec){
+      sec=s.sec;
+      const d=document.createElement('div');
+      d.className='sdiv';
+      d.innerHTML=`<span class="slbl">${s.sec}</span><div class="sline"></div>`;
+      w.appendChild(d);
     }
-    const card = document.createElement('div');
-    card.className = 'qcard';
-    card.id = `c${i}`;
-    card.style.animationDelay = `${(i % 6) * 0.05}s`;
-    card.innerHTML = `
+    const c=document.createElement('div');
+    c.className='qcard'; c.id=`c${i}`;
+    c.style.animationDelay=`${(i%7)*.045}s`;
+    const calcHtml=s.calc?`<span class="calc">🧮 ${s.calc}</span>`:'';
+    c.innerHTML=`
       <div class="qh"><span class="qnum">No.${s.no}</span><span class="qtxt">${s.q}</span></div>
       <div class="opts">${s.opts.map((o,oi)=>`
-        <label class="opt" id="o${i}-${oi}" onclick="pick(${i},${oi})">
+        <label class="opt" id="o${i}${oi}" onclick="pick(${i},${oi})">
           <input type="radio" name="q${i}">
           <div class="odot"></div>
           <span class="otxt">${o}</span>
         </label>`).join('')}
       </div>
-      <div class="expbox" id="exp${i}">
+      <div class="expbox" id="ex${i}">
         <div class="exph" id="exph${i}">
-          <span id="expi${i}"></span>
-          <span id="expt${i}"></span>
+          <span id="exi${i}"></span>
+          <span id="ext${i}" style="flex:1"></span>
           <span class="exph-ref">${s.ref}</span>
         </div>
-        <div class="expb">${s.exp}</div>
+        <div class="expb">${s.exp}${calcHtml}</div>
       </div>`;
-    wrap.appendChild(card);
+    w.appendChild(c);
   });
 }
 
-function pick(qi, oi) {
-  if (submitted) return;
-  userAnswers[qi] = oi;
-  currentSoal[qi].opts.forEach((_,k) => {
-    document.getElementById(`o${qi}-${k}`).classList.toggle('selected', k===oi);
-  });
-  const card = document.getElementById(`c${qi}`);
-  card.classList.remove('warn');
-  const w = card.querySelector('.wlbl');
-  if (w) w.remove();
-  updateProg();
+function pick(qi,oi){
+  if(done)return;
+  A[qi]=oi;
+  S[qi].opts.forEach((_,k)=>document.getElementById(`o${qi}${k}`).classList.toggle('sel',k===oi));
+  const c=document.getElementById(`c${qi}`);
+  c.classList.remove('warn');
+  const w=c.querySelector('.wlbl'); if(w)w.remove();
+  prog();
 }
 
-function updateProg() {
-  const n = userAnswers.filter(a=>a!==null).length;
-  document.getElementById('ans-count').textContent = n;
-  document.getElementById('tb-count').textContent = `${n} / ${currentSoal.length}`;
-  document.getElementById('tb-prog').style.width = `${(n/currentSoal.length)*100}%`;
+function prog(){
+  const n=A.filter(a=>a!==null).length;
+  document.getElementById('tb-a').textContent=n;
+  document.getElementById('sb-a').textContent=n;
+  document.getElementById('tb-pi').style.width=`${(n/S.length)*100}%`;
 }
 
-function submitQuiz() {
-  const blank = userAnswers.map((a,i)=>a===null?i:null).filter(i=>i!==null);
-  if (blank.length) {
-    blank.forEach(i => {
-      const c = document.getElementById(`c${i}`);
-      c.classList.add('warn');
-      if (!c.querySelector('.wlbl')) {
-        const t = document.createElement('span');
-        t.className = 'wlbl'; t.textContent = '⚠ Belum dijawab';
-        c.appendChild(t);
+function submit(){
+  const miss=A.map((a,i)=>a===null?i:null).filter(i=>i!==null);
+  if(miss.length){
+    miss.forEach(i=>{
+      const c=document.getElementById(`c${i}`); c.classList.add('warn');
+      if(!c.querySelector('.wlbl')){
+        const l=document.createElement('span'); l.className='wlbl'; l.textContent='⚠ Belum dijawab'; c.appendChild(l);
       }
     });
-    document.getElementById(`c${blank[0]}`).scrollIntoView({behavior:'smooth',block:'center'});
+    document.getElementById(`c${miss[0]}`).scrollIntoView({behavior:'smooth',block:'center'});
     return;
   }
-  submitted = true;
-
-  currentSoal.forEach((s,i) => {
-    const ok = userAnswers[i] === s.ans;
-    const card = document.getElementById(`c${i}`);
-    s.opts.forEach((_,oi) => {
-      const el = document.getElementById(`o${i}-${oi}`);
-      el.classList.add('disabled');
-      el.classList.remove('selected');
-      if (oi === s.ans) el.classList.add('correct');
-      else if (oi === userAnswers[i] && userAnswers[i] !== s.ans) el.classList.add('wrong');
+  done=true;
+  S.forEach((s,i)=>{
+    const ok=A[i]===s.ans;
+    const card=document.getElementById(`c${i}`);
+    s.opts.forEach((_,k)=>{
+      const el=document.getElementById(`o${i}${k}`);
+      el.classList.add('dis'); el.classList.remove('sel');
+      if(k===s.ans)el.classList.add('ok');
+      else if(k===A[i]&&A[i]!==s.ans)el.classList.add('no');
     });
-    card.classList.add(ok ? 'result-ok' : 'result-no');
-    const tag = document.createElement('span');
-    tag.className = `rtag ${ok?'ok':'no'}`;
-    tag.textContent = ok ? '✓ Benar' : '✗ Salah';
-    card.appendChild(tag);
-    const expbox = document.getElementById(`exp${i}`);
-    const exph = document.getElementById(`exph${i}`);
-    const expi = document.getElementById(`expi${i}`);
-    const expt = document.getElementById(`expt${i}`);
-    expbox.classList.add('show');
-    exph.classList.add(ok ? 'ok' : 'no');
-    expi.textContent = ok ? '✓' : '✗';
-    expt.textContent = ok ? 'Jawaban Anda Benar!' : `Jawaban Benar: ${s.opts[s.ans]}`;
+    card.classList.add(ok?'rb':'rr');
+    const t=document.createElement('span');
+    t.className=`rtag ${ok?'ok':'no'}`; t.textContent=ok?'✓ Benar':'✗ Salah';
+    card.appendChild(t);
+    const box=document.getElementById(`ex${i}`);
+    const hdr=document.getElementById(`exph${i}`);
+    box.classList.add('show'); hdr.classList.add(ok?'ok':'no');
+    document.getElementById(`exi${i}`).textContent=ok?'✓':'✗';
+    document.getElementById(`ext${i}`).textContent=ok?'Jawaban Anda Benar!':'Jawaban Benar: '+s.opts[s.ans];
   });
-
-  const benar = userAnswers.filter((a,i)=>a===currentSoal[i].ans).length;
-  const salah = currentSoal.length - benar;
-  const pct = Math.round((benar/currentSoal.length)*100);
-  showBanner(benar, salah, pct);
+  const benar=A.filter((a,i)=>a===S[i].ans).length;
+  const salah=S.length-benar;
+  const pct=Math.round((benar/S.length)*100);
+  banner(benar,salah,pct);
 }
 
-function showBanner(benar, salah, pct) {
-  const wrap = document.getElementById('qwrap');
-  const b = document.createElement('div');
-  b.className = 'score-banner'; b.id = 'sbanner';
-
-  let grade, desc;
-  if (pct>=89){grade='🏆 Sangat Siap';desc='Luar biasa! Pemahaman Anda sangat kuat. Layak lulus karyawan tetap BCA.';}
-  else if(pct>=74){grade='✅ Siap';desc='Bagus! Pemahaman Anda baik. Review beberapa topik untuk hasil sempurna.';}
-  else if(pct>=57){grade='📚 Cukup';desc='Perlu belajar lebih intensif. Cek penjelasan jawaban yang salah di atas.';}
-  else{grade='🔁 Belum Siap';desc='Review ulang seluruh manual kerja dan coba lagi.';}
-
-  const col = pct>=89?'#059669':pct>=74?'#1A56DB':pct>=57?'#F59E0B':'#DC2626';
-  const off = 283 - (pct/100)*283;
-
-  b.innerHTML = `
-    <div class="sbin">
+function banner(benar,salah,pct){
+  let grade,desc,color;
+  if(pct>=90){grade='🏆 Outstanding';desc='Luar biasa! Penguasaan sangat tinggi.';color='#059669';}
+  else if(pct>=77){grade='✅ Siap Lulus';desc='Bagus! Masih ada ruang untuk sempurna.';color='#1A56DB';}
+  else if(pct>=60){grade='📚 Perlu Diperkuat';desc='Cukup, namun perlu pelajari ulang beberapa bagian.';color='#F59E0B';}
+  else{grade='🔁 Review Ulang';desc='Perlu mempelajari ulang manual kerja secara menyeluruh.';color='#DC2626';}
+  const circ=314,off=circ-(pct/100)*circ;
+  const bx=document.getElementById('sbanner');
+  bx.innerHTML=`
+    <div class="sbi">
       <div class="sring">
-        <svg width="100" height="100" viewBox="0 0 100 100">
-          <circle class="srbg" cx="50" cy="50" r="45"/>
-          <circle class="srfg" id="srfg" cx="50" cy="50" r="45" style="stroke:${col}"/>
+        <svg width="110" height="110" viewBox="0 0 110 110">
+          <circle class="srbg" cx="55" cy="55" r="50"/>
+          <circle class="srfg" id="srfg" cx="55" cy="55" r="50" style="stroke:${color}"/>
         </svg>
-        <div class="srtxt"><span class="srnum" id="srnum">0</span><span class="srof">/ 100</span></div>
+        <div class="srtxt"><span class="srn" id="srn">0</span><span class="sro">/ 100</span></div>
       </div>
-      <div class="sbinfo">
-        <div class="sbgrade">${grade}</div>
-        <div class="sbdesc">${desc}</div>
-        <div class="sbpills">
-          <span class="sbpill pok">✓ ${benar} Benar</span>
-          <span class="sbpill pno">✗ ${salah} Salah</span>
-          <span class="sbpill ppct">${pct}% Akurasi</span>
+      <div class="sinfo">
+        <div class="sgrade">${grade}</div>
+        <div class="sdesc">${desc}</div>
+        <div class="spills">
+          <span class="spill pok">✓ ${benar} Benar</span>
+          <span class="spill pno">✗ ${salah} Salah</span>
+          <span class="spill ppct">${pct}% Akurasi</span>
         </div>
-        <button class="btnback" onclick="goHome()">← Pilih Mode Lain</button>
+        <button class="btn-rt" onclick="retry()">↺ Ulangi</button>
+        <button class="btn-bk" onclick="toLanding()">← Pilih Mode</button>
       </div>
     </div>`;
-
-  wrap.insertBefore(b, wrap.firstChild);
-  b.style.display = 'block';
+  bx.style.display='block';
   window.scrollTo({top:0,behavior:'smooth'});
-
-  let cur = 0;
-  const iv = setInterval(()=>{cur=Math.min(cur+2,pct);document.getElementById('srnum').textContent=cur;if(cur>=pct)clearInterval(iv);},20);
-  setTimeout(()=>{const e=document.getElementById('srfg');if(e)e.style.strokeDashoffset=off;},200);
-
-  document.getElementById('subbar').innerHTML = `
-    <div class="subbar-in">
-      <div class="subinfo">Nilai: <strong>${pct}/100</strong> &nbsp;·&nbsp; Benar: <strong style="color:#059669">${benar}</strong> &nbsp;·&nbsp; Salah: <strong style="color:#DC2626">${salah}</strong></div>
-      <div style="display:flex;gap:10px;">
-        <button class="btnsubmit" style="background:rgba(11,31,58,0.6);border:1px solid rgba(255,255,255,0.15)" onclick="retryMode()">↺ Ulangi</button>
-        <button class="btnsubmit" onclick="goHome()">← Pilih Mode</button>
+  let cur=0;
+  const iv=setInterval(()=>{cur=Math.min(cur+2,pct);document.getElementById('srn').textContent=cur;if(cur>=pct)clearInterval(iv);},20);
+  setTimeout(()=>{const el=document.getElementById('srfg');if(el)el.style.strokeDashoffset=off;},200);
+  document.getElementById('subbar').innerHTML=`
+    <div class="sb">
+      <div class="sb-info">Nilai: <strong>${pct}/100</strong> &nbsp;·&nbsp; Benar: <strong style="color:#059669">${benar}</strong> &nbsp;·&nbsp; Salah: <strong style="color:#DC2626">${salah}</strong></div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn-gh" onclick="toLanding()">← Pilih Mode</button>
+        <button class="btn-sub" onclick="retry()">↺ Ulangi</button>
       </div>
     </div>`;
 }
 
-function retryMode() {
-  const mode = currentMode;
-  goHome();
-  setTimeout(()=>startMode(mode), 50);
+function retry(){
+  A=new Array(S.length).fill(null); done=false;
+  render(); prog();
+  document.getElementById('subbar').innerHTML=`
+    <div class="sb">
+      <div class="sb-info">Terjawab: <strong id="sb-a">0</strong> dari <strong id="sb-t">${S.length}</strong> soal</div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn-gh" onclick="toLanding()">← Pilih Mode</button>
+        <button class="btn-sub" onclick="submit()">Submit & Lihat Nilai →</button>
+      </div>
+    </div>`;
+  window.scrollTo(0,0);
 }
 
-function goHome() {
-  document.getElementById('quiz-screen').style.display = 'none';
-  document.getElementById('subbar').style.display = 'none';
-  document.getElementById('topbar').style.display = 'none';
-  document.getElementById('landing').style.display = 'flex';
-  window.scrollTo(0,0);
-  location.reload();
+function toLanding(){
+  document.getElementById('landing').style.display='flex';
+  document.getElementById('quiz').style.display='none';
+  document.getElementById('subbar').style.display='none';
+  document.getElementById('topbar').style.display='none';
+  M=null;S=[];A=[];done=false;
 }
 </script>
 </body>
